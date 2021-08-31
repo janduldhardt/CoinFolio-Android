@@ -10,5 +10,8 @@ class MainActivity : AppCompatActivity() {
 
         // Fixing
         //Download and show coins
+
+
+        var a = 10;
     }
 }
