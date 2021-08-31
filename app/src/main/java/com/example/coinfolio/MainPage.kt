@@ -14,5 +14,8 @@ class MainPage : AppCompatActivity() {
         // Initialize Mainpage
 
         //do stuff
+
+
+        // Fix the bug
     }
 }
