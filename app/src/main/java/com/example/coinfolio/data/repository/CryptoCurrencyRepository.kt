@@ -1,21 +1,17 @@
 package com.example.coinfolio.data.repository
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import androidx.room.Room
-import com.example.coinfolio.Constants
-import com.example.coinfolio.data.CryptoCurrencyDatabase
 import com.example.coinfolio.data.dao.CryptoCurrencyDao
 import com.example.coinfolio.data.models.app.CryptoCurrency
 import com.example.coinfolio.data.rest.cryptocompare.api.CryptoCompareService
-import retrofit2.Retrofit
-import retrofit2.await
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.coinfolio.utils.ConnectionUtil
 
 class CryptoCurrencyRepository(
+    private val context : Context,
     private val cryptoCurrencyDao : CryptoCurrencyDao,
-    private val cryptoCompareService : CryptoCompareService
+    private val cryptoCompareService : CryptoCompareService,
 ){
 
 
@@ -32,14 +28,16 @@ class CryptoCurrencyRepository(
     }
 
 
-    suspend fun getCryptoCurrencies(): LiveData<List<CryptoCurrency>> = liveData {
-//        emitSource(cryptoCurrencyDao.getAllCryptoCurrencies())
-//        val cryptoCurrencies = cryptoCompareService.getTop100CryptoCurrenciesUSD().GetCryptoList()
-        emit(cryptoCompareService.getTop100CryptoCurrenciesUSD().GetCryptoList())
-//        cryptoCurrencyDao.createCryptoCurrency(*cryptoCurrencies.toTypedArray())
-    }
+    suspend fun getCryptoCurrencies(): List<CryptoCurrency> {
+//        if(!ConnectionUtil.isOnline(context)){
+            return cryptoCurrencyDao.getAllCryptoCurrencies();
+//        }
 
-    suspend fun getCryptoCurrencies2() = cryptoCompareService.getTop100CryptoCurrenciesUSD();
+        val cryptoCurrencies = cryptoCompareService.getTop100CryptoCurrenciesUSD()
+        val cryptoList = cryptoCurrencies.getCryptoList()
+        cryptoCurrencyDao.createCryptoCurrency(*cryptoList.toTypedArray())
+        return cryptoList
+    }
 
 }
 

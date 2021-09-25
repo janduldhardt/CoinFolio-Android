@@ -11,7 +11,7 @@ import com.example.coinfolio.data.models.app.CryptoCurrency
 interface CryptoCurrencyDao {
 
     @Query("SELECT * FROM cryptocurrency")
-    fun getAllCryptoCurrencies(): LiveData<List<CryptoCurrency>>
+    suspend fun getAllCryptoCurrencies(): List<CryptoCurrency>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun createCryptoCurrency(vararg cryptoCurrency: CryptoCurrency)

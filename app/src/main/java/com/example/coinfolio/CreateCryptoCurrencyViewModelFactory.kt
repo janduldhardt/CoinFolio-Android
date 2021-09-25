@@ -14,6 +14,7 @@ class CreateCryptoCurrencyViewModelProviderFactory(val app: CoinFolioApp, val in
         val cryptoCurrencyDao = CoinFolioApp.coinFolioDb.cryptoCurrencyDao()
         val cryptoCurrencyService = CoinFolioApp.retrofit.create(CryptoCompareService::class.java)
         val cryptoCurrencyRepository = CryptoCurrencyRepository(
+            app.applicationContext,
             cryptoCurrencyDao,
             cryptoCurrencyService
         )

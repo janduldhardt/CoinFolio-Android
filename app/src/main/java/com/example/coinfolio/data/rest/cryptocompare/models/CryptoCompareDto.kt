@@ -1,5 +1,9 @@
 package com.example.coinfolio.data.rest.cryptocompare.models
 
+import Data
+import MetaData
+import RateLimit
+import SponsoredData
 import com.example.coinfolio.data.models.app.CryptoCurrency
 import com.google.gson.annotations.SerializedName
 import java.util.*
@@ -16,23 +20,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class CryptoCompareResponse (
+data class CryptoCompareResponse(
 
-    @SerializedName("Message") val message : String,
-    @SerializedName("Type") val type : Int,
-    @SerializedName("com.example.coinfolio.data.rest.cryptocompare.models.MetaData") val metaData : MetaData,
-    @SerializedName("com.example.coinfolio.data.rest.cryptocompare.models.SponsoredData") val sponsoredData : List<SponsoredData>,
-    @SerializedName("com.example.coinfolio.data.rest.cryptocompare.models.Data") val data : List<Data>,
-    @SerializedName("com.example.coinfolio.data.rest.cryptocompare.models.RateLimit") val rateLimit : RateLimit,
-    @SerializedName("HasWarning") val hasWarning : Boolean
+    @SerializedName("Message") val message: String,
+    @SerializedName("Type") val type: Int,
+    @SerializedName("MetaData") val metaData: MetaData,
+    @SerializedName("SponsoredData") val sponsoredData: List<SponsoredData>,
+    @SerializedName("Data") val data: List<Data>,
+    @SerializedName("RateLimit") val rateLimit: RateLimit,
+    @SerializedName("HasWarning") val hasWarning: Boolean
 ) {
-    fun GetCryptoList() : List<CryptoCurrency> {
+    fun getCryptoList(): List<CryptoCurrency> {
         val coins = mutableListOf<CryptoCurrency>()
 
-        for (d in data){
+        for (d in data) {
             val cinfo = d.coinInfo
             val craw = d.rAW
-            val coin = CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, craw.uSD.pRICE)
+            if (cinfo == null || craw == null) {
+                continue
+            }
+            val coin =
+                CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, craw.uSD.pRICE)
             coins.add(coin)
         }
 

@@ -1,9 +1,7 @@
-package com.example.coinfolio.data.rest.cryptocompare.models
-
 import com.google.gson.annotations.SerializedName
 
 /*
-Copyright (c) 2021 Kotlin com.example.coinfolio.data.rest.cryptocompare.models.Data Classes Generated from JSON powered by http://www.json2kotlin.com
+Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -16,5 +14,5 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 data class DISPLAY (
 
-	@SerializedName("com.example.coinfolio.data.rest.cryptocompare.models.USD") val uSD : USD
+	@SerializedName("USD") val uSD : USD
 )

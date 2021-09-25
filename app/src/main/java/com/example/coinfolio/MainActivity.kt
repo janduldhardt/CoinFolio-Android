@@ -2,7 +2,9 @@ package com.example.coinfolio
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.coinfolio.data.models.app.CryptoCurrency
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +27,15 @@ class MainActivity : AppCompatActivity() {
 
 //        val reminderEditText: EditText = findViewById(R.id.reminderEditTextView)
 //        val createReminderButton: Button = findViewById(R.id.createReminderButton)
+        val testObserver = Observer<List<CryptoCurrency>> {
+            test_textView.text = it?.get(0)?.name
+
+        }
+
+        viewModel.mAllCryptoCurrencies.observe(this, testObserver)
 
         btn_test.setOnClickListener {
-            viewModel.loadCryptoCurrencies()
+           var test = 10
         }
     }
 

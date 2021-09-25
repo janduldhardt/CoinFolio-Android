@@ -18,7 +18,7 @@ public interface CryptoCompareService {
     @GET("/data/top/mktcapfull")
     suspend fun getTop100CryptoCurrenciesUSD(
         @Query("limit") n: Int = 100,
-        @Query("tysm") fiatAbbreviation: String = "USD"
+        @Query("tsym") fiatAbbreviation: String = "USD"
     ): CryptoCompareResponse
 
 }

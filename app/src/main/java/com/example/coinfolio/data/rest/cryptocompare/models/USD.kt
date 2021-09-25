@@ -1,9 +1,7 @@
-package com.example.coinfolio.data.rest.cryptocompare.models
-
 import com.google.gson.annotations.SerializedName
 
 /*
-Copyright (c) 2021 Kotlin com.example.coinfolio.data.rest.cryptocompare.models.Data Classes Generated from JSON powered by http://www.json2kotlin.com
+Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -23,7 +21,7 @@ data class USD (
 	@SerializedName("LASTUPDATE") val lASTUPDATE : String,
 	@SerializedName("LASTVOLUME") val lASTVOLUME : String,
 	@SerializedName("LASTVOLUMETO") val lASTVOLUMETO : String,
-	@SerializedName("LASTTRADEID") val lASTTRADEID : Int,
+	@SerializedName("LASTTRADEID") val lASTTRADEID : String,
 	@SerializedName("VOLUMEDAY") val vOLUMEDAY : String,
 	@SerializedName("VOLUMEDAYTO") val vOLUMEDAYTO : String,
 	@SerializedName("VOLUME24HOUR") val vOLUME24HOUR : String,
@@ -43,11 +41,11 @@ data class USD (
 	@SerializedName("TOPTIERVOLUME24HOUR") val tOPTIERVOLUME24HOUR : String,
 	@SerializedName("TOPTIERVOLUME24HOURTO") val tOPTIERVOLUME24HOURTO : String,
 	@SerializedName("CHANGE24HOUR") val cHANGE24HOUR : String,
-	@SerializedName("CHANGEPCT24HOUR") val cHANGEPCT24HOUR : Double,
+	@SerializedName("CHANGEPCT24HOUR") val cHANGEPCT24HOUR : String,
 	@SerializedName("CHANGEDAY") val cHANGEDAY : String,
-	@SerializedName("CHANGEPCTDAY") val cHANGEPCTDAY : Double,
+	@SerializedName("CHANGEPCTDAY") val cHANGEPCTDAY : String,
 	@SerializedName("CHANGEHOUR") val cHANGEHOUR : String,
-	@SerializedName("CHANGEPCTHOUR") val cHANGEPCTHOUR : Double,
+	@SerializedName("CHANGEPCTHOUR") val cHANGEPCTHOUR : String,
 	@SerializedName("CONVERSIONTYPE") val cONVERSIONTYPE : String,
 	@SerializedName("CONVERSIONSYMBOL") val cONVERSIONSYMBOL : String,
 	@SerializedName("SUPPLY") val sUPPLY : String,
