@@ -8,17 +8,17 @@ import com.example.coinfolio.data.models.app.CryptoCurrency
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val viewModel: CreateCryptoCurrencyViewModel by lazy {
+    val viewModel: TopCryptoCurrenciesViewModel by lazy {
         val app = application as CoinFolioApp
         val viewModelProviderFactory =
-            CreateCryptoCurrencyViewModelProviderFactory(
+            TopCryptoCurrenciesViewModelProviderFactory(
                 app,
                 intent
             )
         ViewModelProvider(
             this,
             viewModelProviderFactory
-        )[CreateCryptoCurrencyViewModel::class.java]
+        )[TopCryptoCurrenciesViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

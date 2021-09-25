@@ -15,23 +15,11 @@ import kotlinx.coroutines.runBlocking
 import java.lang.Exception
 import java.util.logging.Logger
 
-class CreateCryptoCurrencyViewModel(private val cryptoCurrencyRepository: CryptoCurrencyRepository) :
+class TopCryptoCurrenciesViewModel(private val cryptoCurrencyRepository: CryptoCurrencyRepository) :
     ViewModel() {
 
-    fun loadCryptoCurrencies() {
-//        try {
-//            var scope = viewModelScope.launch {
-//                mAllCryptoCurrencies = liveData {  }cryptoCurrencyRepository.getCryptoCurrencies()
-//            }
-//        } catch (e: Exception) {
-//            Log.e("Load Cryptos", e.message!!)
-//        }
-    }
-
-    val mAllCryptoCurrencies : LiveData<List<CryptoCurrency>> = liveData {
+    val mAllCryptoCurrencies: LiveData<List<CryptoCurrency>> = liveData {
         emit(cryptoCurrencyRepository.getCryptoCurrencies())
     }
-    lateinit var mAllCryptoCurrencies2 : List<CryptoCurrency>
-
 
 }

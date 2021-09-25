@@ -7,7 +7,7 @@ import com.example.coinfolio.data.repository.CryptoCurrencyRepository
 import com.example.coinfolio.data.rest.cryptocompare.api.CryptoCompareService
 
 
-class CreateCryptoCurrencyViewModelProviderFactory(val app: CoinFolioApp, val intent: Intent) :
+class TopCryptoCurrenciesViewModelProviderFactory(val app: CoinFolioApp, val intent: Intent) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
 
@@ -18,7 +18,7 @@ class CreateCryptoCurrencyViewModelProviderFactory(val app: CoinFolioApp, val in
             cryptoCurrencyDao,
             cryptoCurrencyService
         )
-        val viewModel = CreateCryptoCurrencyViewModel(cryptoCurrencyRepository)
+        val viewModel = TopCryptoCurrenciesViewModel(cryptoCurrencyRepository)
         return viewModel as T
     }
 }
