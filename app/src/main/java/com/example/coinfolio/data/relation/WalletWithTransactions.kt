@@ -16,3 +16,8 @@ class WalletWithTransactions(
     )
     val transactions: List<TransactionWithCryptoCurrency>,
 )
+{
+    fun getCryptoCurrencies() : List<CryptoCurrencyDTO>{
+        return transactions.map { it.cryptoCurrencyDTO }.toSet().toList()
+    }
+}

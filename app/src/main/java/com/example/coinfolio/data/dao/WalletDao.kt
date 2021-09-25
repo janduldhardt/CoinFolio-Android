@@ -13,8 +13,8 @@ interface WalletDao {
     suspend fun getWalletById(id : String): List<WalletDTO>
 
     @Transaction
-    @Query("SELECT * FROM walletdto WHERE walletId LIKE :id")
-    suspend fun getWalletWithTransfersById(id : String): List<WalletWithTransactions>
+    @Query("SELECT * FROM walletdto WHERE walletId LIKE :id LIMIT 1")
+    suspend fun getWalletWithTransfersById(id : String): WalletWithTransactions
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun createWallet(wallet : WalletDTO)

@@ -47,11 +47,12 @@ class MainActivity : AppCompatActivity() {
             rv.adapter = mCoinListAdapter
         }
 
+        viewModel.mAllCryptoCurrenciesDTO.observe(this, coinListObserver)
+
         walletButton.setOnClickListener{
             navigateToWallet()
         }
 
-        viewModel.mAllCryptoCurrenciesDTO.observe(this, coinListObserver)
     }
 
     private fun navigateToWallet() {

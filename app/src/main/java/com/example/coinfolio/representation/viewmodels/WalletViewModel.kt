@@ -18,11 +18,18 @@ class WalletViewModel(
     private val walletRepository: WalletRepository
 ) : ViewModel() {
 
-    private val mAllCryptoCurrenciesDTO: LiveData<List<CryptoCurrencyDTO>> = liveData {
-        emit(cryptoCurrencyRepository.getCryptoCurrencies())
+    val mAllCryptoCurrenciesDTO: LiveData<WalletWithTransactions> = liveData {
+        emit(walletRepository.getWalletWithTransactions(testWalletId))
     }
 
     val testWalletId = "1234567890"
+
+    // TODO: Reload the wallet when new coin was added
+//    fun loadWallet() {
+//        mAllCryptoCurrenciesDTO = liveData {
+//            emit(walletRepository.getWalletWithTransactions(testWalletId))
+//        }
+//    }
 
     fun retrieveTestWallet() {
         viewModelScope.launch {
