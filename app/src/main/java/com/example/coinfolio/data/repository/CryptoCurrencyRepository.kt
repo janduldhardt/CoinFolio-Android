@@ -29,10 +29,10 @@ class CryptoCurrencyRepository(
 
 
     suspend fun getCryptoCurrencies(): List<CryptoCurrency> {
-        //TODO: Uncomment to get data from remote
-//        if(!ConnectionUtil.isOnline(context)){
+//        TODO: Uncomment to get data from remote
+        if(!ConnectionUtil.isOnline(context)){
             return cryptoCurrencyDao.getAllCryptoCurrencies();
-//        }
+        }
 
 
         val cryptoCurrencies = cryptoCompareService.getTop100CryptoCurrenciesUSD()

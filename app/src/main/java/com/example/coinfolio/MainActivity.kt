@@ -1,14 +1,16 @@
 package com.example.coinfolio
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.data.models.app.CryptoCurrency
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.coinfolio.representation.adapter.TrackCoinListAdapter
 
 class MainActivity : AppCompatActivity() {
-    val viewModel: TopCryptoCurrenciesViewModel by lazy {
+    private val viewModel: TopCryptoCurrenciesViewModel by lazy {
         val app = application as CoinFolioApp
         val viewModelProviderFactory =
             TopCryptoCurrenciesViewModelProviderFactory(
@@ -21,34 +23,22 @@ class MainActivity : AppCompatActivity() {
         )[TopCryptoCurrenciesViewModel::class.java]
     }
 
+    private lateinit var mCoinListAdapter: TrackCoinListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_track)
 
-//        val reminderEditText: EditText = findViewById(R.id.reminderEditTextView)
-//        val createReminderButton: Button = findViewById(R.id.createReminderButton)
-        val testObserver = Observer<List<CryptoCurrency>> {
-            test_textView.text = it?.get(0)?.name
+        // Set RecyclerView
+        val rv = findViewById<RecyclerView>(R.id.RecyclerView_activity_track)
+        rv.layoutManager = LinearLayoutManager(this)
 
+        val coinListObserver = Observer<List<CryptoCurrency>> {
+            mCoinListAdapter = TrackCoinListAdapter(it) {}
+            rv.adapter = mCoinListAdapter
         }
 
-        viewModel.mAllCryptoCurrencies.observe(this, testObserver)
-
-        btn_test.setOnClickListener {
-           var test = 10
-        }
+        viewModel.mAllCryptoCurrencies.observe(this, coinListObserver)
     }
-
-//    private fun createReminder(text: String) {
-//        if (text.isEmpty()) {
-//            showToast(message = "Reminder text field is empty")
-//        } else {
-//            viewModel.createReminder(text = text)
-//        }
-//    }
-//
-//    private fun showToast(message: String) {
-//        ...
-//    }
 
 }
