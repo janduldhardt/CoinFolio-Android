@@ -4,4 +4,8 @@
     <string name="track_activity_title">Track</string>
     <string name="cardview_totalcost">TOTAL COST  </string>
     <string name="cardview_totalprofit">TOTAL PROFIT  </string>
+    <string name="EnterAmount">Enter Amount</string>
+    <string name="EnterPrice">Enter Price</string>
+    <string name="EnterADecimal">Enter a decimal</string>
+    <string name="CheckInvalidFields">Please check the input</string>
 </resources>

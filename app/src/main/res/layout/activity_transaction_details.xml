@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".representation.activities.TransactionDetailsActivity">
+
+    <Toolbar
+        android:id="@+id/toolbar_transaction_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainAppColor"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_close_transaction_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:background="@color/mainAppColor"
+            android:src="@drawable/ic_baseline_close_24" />
+
+        <ImageButton
+            android:id="@+id/btn_save_transaction_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:background="@color/mainAppColor"
+            android:src="@drawable/ic_baseline_check_24" />
+    </Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_transaction_details">
+
+        <Spinner
+            android:id="@+id/spinner_transaction_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_amount"
+            android:inputType="numberDecimal"
+            android:hint="@string/EnterAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_price"
+            android:inputType="numberDecimal"
+            android:hint="@string/EnterPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

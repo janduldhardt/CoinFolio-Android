@@ -1,5 +1,6 @@
 package com.example.coinfolio.representation.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -39,5 +40,14 @@ class WalletActivity : AppCompatActivity() {
             viewModel.createTestWallet()
         }
 
+        addButton.setOnClickListener {
+            openTransactionDetails()
+        }
+
+    }
+
+    private fun openTransactionDetails() {
+        val intent = Intent(this, TransactionDetailsActivity::class.java)
+        startActivity(intent)
     }
 }
