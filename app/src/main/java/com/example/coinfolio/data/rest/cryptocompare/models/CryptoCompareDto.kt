@@ -32,7 +32,7 @@ data class CryptoCompareResponse (
         for (d in data){
             val cinfo = d.coinInfo
             val craw = d.rAW
-            val coin = CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, craw.uSD.pRICE.toBigDecimal())
+            val coin = CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, craw.uSD.pRICE)
             coins.add(coin)
         }
 

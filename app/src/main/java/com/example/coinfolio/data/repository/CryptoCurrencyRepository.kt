@@ -13,30 +13,33 @@ import retrofit2.Retrofit
 import retrofit2.await
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CryptoCurrencyRepository(application: Application){
-
-    private val cryptoCurrencyDao : CryptoCurrencyDao
+class CryptoCurrencyRepository(
+    private val cryptoCurrencyDao : CryptoCurrencyDao,
     private val cryptoCompareService : CryptoCompareService
+){
+
 
     init{
-        val db = Room.databaseBuilder(
-            application.applicationContext,
-            CryptoCurrencyDatabase::class.java, "database-name"
-        ).build()
-        cryptoCurrencyDao = db.cryptoCurrencyDao()
-
-        val retrofit = Retrofit.Builder().baseUrl(Constants.CRYPTOCOMPARE_BASEURL).addConverterFactory(
-            GsonConverterFactory.create()).build()
-        cryptoCompareService = retrofit.create(CryptoCompareService::class.java)
-
+//        val db = Room.databaseBuilder(
+//            application.applicationContext,
+//            CryptoCurrencyDatabase::class.java, "database-name"
+//        ).build()
+//        cryptoCurrencyDao = db.cryptoCurrencyDao()
+//
+//        val retrofit = Retrofit.Builder().baseUrl(Constants.CRYPTOCOMPARE_BASEURL).addConverterFactory(
+//            GsonConverterFactory.create()).build()
+//        cryptoCompareService = retrofit.create(CryptoCompareService::class.java)
     }
 
 
-    suspend fun getReminders(): LiveData<List<CryptoCurrency>> = liveData {
-        emitSource(cryptoCurrencyDao.getAllCryptoCurrencies())
-        val cryptoCurrencies = cryptoCompareService.getTop100CryptoCurrenciesUSD().await().GetCryptoList()
-        cryptoCurrencyDao.createCryptoCurrency(*cryptoCurrencies.toTypedArray())
+    suspend fun getCryptoCurrencies(): LiveData<List<CryptoCurrency>> = liveData {
+//        emitSource(cryptoCurrencyDao.getAllCryptoCurrencies())
+//        val cryptoCurrencies = cryptoCompareService.getTop100CryptoCurrenciesUSD().GetCryptoList()
+        emit(cryptoCompareService.getTop100CryptoCurrenciesUSD().GetCryptoList())
+//        cryptoCurrencyDao.createCryptoCurrency(*cryptoCurrencies.toTypedArray())
     }
+
+    suspend fun getCryptoCurrencies2() = cryptoCompareService.getTop100CryptoCurrenciesUSD();
 
 }
 

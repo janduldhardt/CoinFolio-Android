@@ -17,7 +17,7 @@ data class CryptoCurrency(
     val imageUri: String,
 
     @ColumnInfo
-    var price: BigDecimal
+    var price: String
 )
 {
 }
