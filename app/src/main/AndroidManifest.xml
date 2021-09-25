@@ -17,6 +17,15 @@
         android:name="com.example.coinfolio.CoinFolioApp">
         >
         <activity
+            android:name=".TrackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WalletActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainPage"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
