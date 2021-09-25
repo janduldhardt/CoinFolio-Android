@@ -1,5 +1,9 @@
-/* 
-Copyright (c) 2021 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
+package com.example.coinfolio.data.rest.cryptocompare.models
+
+import com.google.gson.annotations.SerializedName
+
+/*
+Copyright (c) 2021 Kotlin com.example.coinfolio.data.rest.cryptocompare.models.Data Classes Generated from JSON powered by http://www.json2kotlin.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -10,23 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class CoinInfo (
+data class RAW (
 
-	@SerializedName("Id") val id : Int,
-	@SerializedName("Name") val name : String,
-	@SerializedName("FullName") val fullName : String,
-	@SerializedName("Internal") val internal : String,
-	@SerializedName("ImageUrl") val imageUrl : String,
-	@SerializedName("Url") val url : String,
-	@SerializedName("Algorithm") val algorithm : String,
-	@SerializedName("ProofType") val proofType : String,
-	@SerializedName("Rating") val rating : Rating,
-	@SerializedName("NetHashesPerSecond") val netHashesPerSecond : Double,
-	@SerializedName("BlockNumber") val blockNumber : Int,
-	@SerializedName("BlockTime") val blockTime : Int,
-	@SerializedName("BlockReward") val blockReward : Double,
-	@SerializedName("AssetLaunchDate") val assetLaunchDate : String,
-	@SerializedName("MaxSupply") val maxSupply : Double,
-	@SerializedName("Type") val type : Int,
-	@SerializedName("DocumentType") val documentType : String
+	@SerializedName("com.example.coinfolio.data.rest.cryptocompare.models.USD") val uSD : USD
 )
