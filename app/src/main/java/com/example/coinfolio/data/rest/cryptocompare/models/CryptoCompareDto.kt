@@ -6,6 +6,7 @@ import RateLimit
 import SponsoredData
 import com.example.coinfolio.data.models.app.CryptoCurrency
 import com.google.gson.annotations.SerializedName
+import java.math.BigDecimal
 import java.util.*
 
 /*
@@ -40,7 +41,7 @@ data class CryptoCompareResponse(
                 continue
             }
             val coin =
-                CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, craw.uSD.pRICE)
+                CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, BigDecimal( craw.uSD.pRICE))
             coins.add(coin)
         }
 

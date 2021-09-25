@@ -14,26 +14,11 @@ class CryptoCurrencyRepository(
     private val cryptoCompareService : CryptoCompareService,
 ){
 
-
-    init{
-//        val db = Room.databaseBuilder(
-//            application.applicationContext,
-//            CryptoCurrencyDatabase::class.java, "database-name"
-//        ).build()
-//        cryptoCurrencyDao = db.cryptoCurrencyDao()
-//
-//        val retrofit = Retrofit.Builder().baseUrl(Constants.CRYPTOCOMPARE_BASEURL).addConverterFactory(
-//            GsonConverterFactory.create()).build()
-//        cryptoCompareService = retrofit.create(CryptoCompareService::class.java)
-    }
-
-
     suspend fun getCryptoCurrencies(): List<CryptoCurrency> {
 //        TODO: Uncomment to get data from remote
         if(!ConnectionUtil.isOnline(context)){
             return cryptoCurrencyDao.getAllCryptoCurrencies();
         }
-
 
         val cryptoCurrencies = cryptoCompareService.getTop100CryptoCurrenciesUSD()
         val cryptoList = cryptoCurrencies.getCryptoList()

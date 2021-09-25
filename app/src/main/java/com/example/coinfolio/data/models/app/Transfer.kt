@@ -9,16 +9,16 @@ import java.math.BigDecimal
 
 @Entity
 @TypeConverters(Converters::class)
-data class CryptoCurrency(
-    @PrimaryKey(autoGenerate = false)
-    val abbreviation: String,
-
+class Transfer(
+    @PrimaryKey(autoGenerate = true)
+    val transferId : Int,
     @ColumnInfo
-    val name: String,
-
+    val amount : BigDecimal,
     @ColumnInfo
-    val imageUri: String,
-
-    @ColumnInfo
-    var price: BigDecimal,
+    val transferType: TransferTypeEnum,
 )
+
+enum class TransferTypeEnum{
+    WITHDRAWL,
+    DEPOSIT
+}

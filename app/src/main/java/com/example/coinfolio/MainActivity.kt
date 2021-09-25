@@ -1,5 +1,6 @@
 package com.example.coinfolio
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.data.models.app.CryptoCurrency
 import com.example.coinfolio.representation.adapter.TrackCoinListAdapter
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_track.*
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: TopCryptoCurrenciesViewModel by lazy {
@@ -38,7 +41,16 @@ class MainActivity : AppCompatActivity() {
             rv.adapter = mCoinListAdapter
         }
 
+        walletButton.setOnClickListener{
+            navigateToWallet()
+        }
+
         viewModel.mAllCryptoCurrencies.observe(this, coinListObserver)
+    }
+
+    private fun navigateToWallet() {
+        val intent = Intent(this, WalletActivity::class.java)
+        startActivity(intent)
     }
 
 }
