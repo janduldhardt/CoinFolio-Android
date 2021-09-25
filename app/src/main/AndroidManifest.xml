@@ -17,16 +17,13 @@
         android:name="com.example.coinfolio.CoinFolioApp">
         >
         <activity
-            android:name=".TrackActivity"
+            android:name=".representation.activities.TrackActivity"
             android:exported="true" />
         <activity
-            android:name=".WalletActivity"
+            android:name=".representation.activities.WalletActivity"
             android:exported="true" />
         <activity
-            android:name=".MainPage"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".representation.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,8 +1,9 @@
-package com.example.coinfolio
+package com.example.coinfolio.representation.viewmodels
 
 import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.coinfolio.CoinFolioApp
 import com.example.coinfolio.data.repository.CryptoCurrencyRepository
 import com.example.coinfolio.data.rest.cryptocompare.api.CryptoCompareService
 

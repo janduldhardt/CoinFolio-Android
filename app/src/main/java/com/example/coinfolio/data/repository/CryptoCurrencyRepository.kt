@@ -1,10 +1,8 @@
 package com.example.coinfolio.data.repository
 
 import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
 import com.example.coinfolio.data.dao.CryptoCurrencyDao
-import com.example.coinfolio.data.models.app.CryptoCurrency
+import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.data.rest.cryptocompare.api.CryptoCompareService
 import com.example.coinfolio.utils.ConnectionUtil
 
@@ -14,7 +12,7 @@ class CryptoCurrencyRepository(
     private val cryptoCompareService : CryptoCompareService,
 ){
 
-    suspend fun getCryptoCurrencies(): List<CryptoCurrency> {
+    suspend fun getCryptoCurrencies(): List<CryptoCurrencyDTO> {
 //        TODO: Uncomment to get data from remote
         if(!ConnectionUtil.isOnline(context)){
             return cryptoCurrencyDao.getAllCryptoCurrencies();

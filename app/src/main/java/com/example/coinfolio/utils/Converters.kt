@@ -1,7 +1,7 @@
 package com.example.coinfolio.utils
 
 import androidx.room.TypeConverter
-import com.example.coinfolio.data.models.app.TransferTypeEnum
+import com.example.coinfolio.data.dto.TransferTypeEnum
 import java.math.BigDecimal
 
 class Converters {

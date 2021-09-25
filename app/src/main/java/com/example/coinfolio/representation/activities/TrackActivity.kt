@@ -1,7 +1,8 @@
-package com.example.coinfolio
+package com.example.coinfolio.representation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.coinfolio.R
 
 class TrackActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

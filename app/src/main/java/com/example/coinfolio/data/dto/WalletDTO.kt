@@ -1,10 +1,10 @@
-package com.example.coinfolio.data.models.app
+package com.example.coinfolio.data.dto
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Wallet(
+class WalletDTO(
     @PrimaryKey
     val walletId: String,
 )

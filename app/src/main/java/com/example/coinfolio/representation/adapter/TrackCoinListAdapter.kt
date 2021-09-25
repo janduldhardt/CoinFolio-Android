@@ -7,12 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.R
-import com.example.coinfolio.data.models.app.CryptoCurrency
+import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.squareup.picasso.Picasso
 
 class TrackCoinListAdapter (
-    private val coinList: List<CryptoCurrency>,
-    val listener: (CryptoCurrency) -> Unit
+    private val coinList: List<CryptoCurrencyDTO>,
+    val listener: (CryptoCurrencyDTO) -> Unit
     ) : RecyclerView.Adapter<TrackCoinListAdapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackCoinListAdapter.ViewHolder =
@@ -31,7 +31,7 @@ class TrackCoinListAdapter (
             private val coinPrice: TextView = itemView.findViewById(R.id.textView_currency_price)
             private val coinLogo: ImageView = itemView.findViewById(R.id.imageView_currency_logo)
 
-            fun bindItems(coin: CryptoCurrency) = with(itemView) {
+            fun bindItems(coin: CryptoCurrencyDTO) = with(itemView) {
                 coinName.text = "${coin.name} (${coin.abbreviation})"
                 coinPrice.text = "\$${coin.price}"
                 Picasso.get().load(coin.imageUri).into(coinLogo);

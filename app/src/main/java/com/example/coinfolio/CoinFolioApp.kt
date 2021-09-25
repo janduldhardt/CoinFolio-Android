@@ -34,8 +34,7 @@ class CoinFolioApp : Application() {
             Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl(Constants.CRYPTOCOMPARE_BASEURL).addConverterFactory(
-                GsonConverterFactory.create()
-            ).build()
-
+                    GsonConverterFactory.create()
+                ).build()
     }
 }

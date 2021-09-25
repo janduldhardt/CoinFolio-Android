@@ -4,10 +4,9 @@ import Data
 import MetaData
 import RateLimit
 import SponsoredData
-import com.example.coinfolio.data.models.app.CryptoCurrency
+import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
-import java.util.*
 
 /*
 Copyright (c) 2021 Kotlin com.example.coinfolio.data.rest.cryptocompare.models.Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -31,8 +30,8 @@ data class CryptoCompareResponse(
     @SerializedName("RateLimit") val rateLimit: RateLimit,
     @SerializedName("HasWarning") val hasWarning: Boolean
 ) {
-    fun getCryptoList(): List<CryptoCurrency> {
-        val coins = mutableListOf<CryptoCurrency>()
+    fun getCryptoList(): List<CryptoCurrencyDTO> {
+        val coins = mutableListOf<CryptoCurrencyDTO>()
 
         for (d in data) {
             val cinfo = d.coinInfo
@@ -41,7 +40,7 @@ data class CryptoCompareResponse(
                 continue
             }
             val coin =
-                CryptoCurrency(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, BigDecimal( craw.uSD.pRICE))
+                CryptoCurrencyDTO(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, BigDecimal( craw.uSD.pRICE))
             coins.add(coin)
         }
 

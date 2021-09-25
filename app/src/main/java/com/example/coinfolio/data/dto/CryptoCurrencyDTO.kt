@@ -1,4 +1,4 @@
-package com.example.coinfolio.data.models.app
+package com.example.coinfolio.data.dto
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -9,7 +9,7 @@ import java.math.BigDecimal
 
 @Entity
 @TypeConverters(Converters::class)
-data class CryptoCurrency(
+data class CryptoCurrencyDTO(
     @PrimaryKey(autoGenerate = false)
     val abbreviation: String,
 
