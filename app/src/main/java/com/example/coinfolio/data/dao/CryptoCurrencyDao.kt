@@ -12,6 +12,6 @@ interface CryptoCurrencyDao {
     @Query("SELECT * FROM cryptocurrencydto")
     suspend fun getAllCryptoCurrencies(): List<CryptoCurrencyDTO>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun createCryptoCurrency(vararg cryptoCurrencyDTO: CryptoCurrencyDTO)
 }
