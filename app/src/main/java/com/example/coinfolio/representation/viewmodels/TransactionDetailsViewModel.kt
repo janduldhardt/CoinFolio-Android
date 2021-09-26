@@ -10,6 +10,7 @@ import com.example.coinfolio.data.dto.TransferTypeEnum
 import com.example.coinfolio.data.relation.TransactionWithCryptoCurrency
 import com.example.coinfolio.data.repository.CryptoCurrencyRepository
 import com.example.coinfolio.data.repository.WalletRepository
+import com.example.coinfolio.utils.Converters
 import com.example.coinfolio.utils.SharedPreferencesUtil
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
@@ -24,7 +25,7 @@ class TransactionDetailsViewModel(
 
     fun saveTransaction(abbreviation: String, amount: String, price: String) {
         val transaction = TransactionDTO(0,walletId,abbreviation,transferTypeEnum,
-            BigDecimal(amount), BigDecimal(price), ZonedDateTime.now())
+            BigDecimal(amount), BigDecimal(price), Converters().zonedDateTimeToString(ZonedDateTime.now()))
         viewModelScope.launch {
             walletRepository.createTransaction(transaction)
         }

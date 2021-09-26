@@ -9,6 +9,7 @@ import com.example.coinfolio.data.relation.TransactionWithCryptoCurrency
 import com.example.coinfolio.data.relation.WalletWithTransactions
 import com.example.coinfolio.data.repository.CryptoCurrencyRepository
 import com.example.coinfolio.data.repository.WalletRepository
+import com.example.coinfolio.utils.Converters
 import kotlinx.coroutines.*
 import java.math.BigDecimal
 import java.time.ZonedDateTime
@@ -21,6 +22,11 @@ class WalletViewModel(
 
     val mAllCryptoCurrenciesDTO: LiveData<WalletWithTransactions> = liveData {
         emit(walletRepository.getWalletWithTransactions(walletId))
+    }
+
+
+    init {
+        walletRepository.addValueEventListenerFirebase(walletId)
     }
 
     // TODO: Reload the wallet when new coin was added
@@ -54,7 +60,7 @@ class WalletViewModel(
                 TransferTypeEnum.DEPOSIT,
                 BigDecimal(12),
                 BigDecimal(10.5),
-                ZonedDateTime.now()
+                Converters().zonedDateTimeToString(ZonedDateTime.now())
             )
 
             walletRepository.createTransaction(transfersDTO)

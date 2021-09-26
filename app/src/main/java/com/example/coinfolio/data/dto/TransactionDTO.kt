@@ -6,7 +6,7 @@ import java.math.BigDecimal
 import java.sql.Timestamp
 import java.time.ZonedDateTime
 
-@Entity(primaryKeys = ["zonedDateTime","walletId"],
+@Entity(primaryKeys = ["zonedDateTimeString","walletId"],
     foreignKeys = [ForeignKey(
         entity = CryptoCurrencyDTO::class,
         parentColumns = arrayOf("abbreviation"),
@@ -33,10 +33,11 @@ class TransactionDTO(
     @ColumnInfo
     val priceAtTransaction: BigDecimal,
     @ColumnInfo
-    val zonedDateTime: ZonedDateTime
+    val zonedDateTimeString: String
 )
 {
-
+    val zonedDateTime : ZonedDateTime
+            get() = Converters().stringToZonedDateTime(zonedDateTimeString)
 }
 
 
