@@ -8,4 +8,8 @@
     <string name="EnterPrice">Enter Price</string>
     <string name="EnterADecimal">Enter a decimal</string>
     <string name="CheckInvalidFields">Please check the input</string>
+    <string name="EnterWalletSeed">Enter your wallet seed</string>
+    <string name="GenerateSeed">Generate</string>
+    <string name="Login">Login</string>
+    <string name="LoignWalletSeedInputError">The entered seed can only contain digits and letters. The length must be between 15 and 255.</string>
 </resources>

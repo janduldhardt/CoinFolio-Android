@@ -10,7 +10,6 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
-import com.squareup.picasso.Picasso
 
 class TrackCoinListAdapter(
     private val coinList: List<CryptoCurrencyDTO>,
