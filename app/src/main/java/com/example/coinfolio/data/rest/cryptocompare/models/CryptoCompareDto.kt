@@ -40,7 +40,7 @@ data class CryptoCompareResponse(
                 continue
             }
             val coin =
-                CryptoCurrencyDTO(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.imageUrl, BigDecimal( craw.uSD.pRICE))
+                CryptoCurrencyDTO(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.fullImageUrl, BigDecimal( craw.uSD.pRICE))
             coins.add(coin)
         }
 

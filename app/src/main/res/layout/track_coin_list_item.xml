@@ -5,19 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#0A1F43"
-    tools:layout_editor_absoluteX="-1dp"
-    tools:layout_editor_absoluteY="13dp">
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="367dp"
-        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView_currency_logo"
@@ -51,15 +46,16 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="367dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="367dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="#FFFFFF"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
+<!--        />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

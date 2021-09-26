@@ -1,3 +1,4 @@
+import com.example.coinfolio.Constants
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -32,3 +33,7 @@ data class CoinInfo (
 //	@SerializedName("Type") val type : Int,
 //	@SerializedName("DocumentType") val documentType : String
 )
+{
+	val fullImageUrl : String
+	get() = Constants.CRYPTOCOMPARE_IMAGE_BASE_URL + imageUrl
+}
