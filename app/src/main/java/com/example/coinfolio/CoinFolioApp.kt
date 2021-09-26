@@ -14,6 +14,7 @@ class CoinFolioApp : Application() {
     companion object {
         lateinit var retrofit: Retrofit
         lateinit var coinFolioDb: CryptoCurrencyDatabase
+        lateinit var walletId : String
     }
 
     override fun onCreate() {
