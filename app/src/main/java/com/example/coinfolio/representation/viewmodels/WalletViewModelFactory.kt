@@ -25,7 +25,7 @@ class WalletViewModelFactory(val app: CoinFolioApp, val intent: Intent) :
         )
 
         val walletRepository = WalletRepository(app.applicationContext, walletDao, transferDao, cryptoCurrencyDao, walletService)
-        val viewModel = WalletViewModel(cryptoCurrencyRepository, walletRepository)
+        val viewModel = WalletViewModel(cryptoCurrencyRepository, walletRepository, CoinFolioApp.walletId)
         return viewModel as T
     }
 }

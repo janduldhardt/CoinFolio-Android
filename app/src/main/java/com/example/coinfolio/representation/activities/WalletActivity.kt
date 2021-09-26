@@ -55,7 +55,7 @@ class WalletActivity : AppCompatActivity() {
         }
 
         trackButton.setOnClickListener {
-            viewModel.createTestWallet()
+            onBackPressed()
         }
 
         addButton.setOnClickListener {

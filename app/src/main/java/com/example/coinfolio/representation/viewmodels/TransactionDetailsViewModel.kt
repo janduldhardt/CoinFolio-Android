@@ -18,10 +18,11 @@ import java.time.ZonedDateTime
 class TransactionDetailsViewModel(
     private val transferTypeEnum: TransferTypeEnum,
     private val cryptoCurrencyRepository: CryptoCurrencyRepository,
-    private val walletRepository: WalletRepository
+    private val walletRepository: WalletRepository,
+    private val walletId : String
 ) : ViewModel() {
 
-    fun saveTransaction(abbreviation: String, amount: String, price: String, walletId : String) {
+    fun saveTransaction(abbreviation: String, amount: String, price: String) {
         val transaction = TransactionDTO(0,walletId,abbreviation,transferTypeEnum,
             BigDecimal(amount), BigDecimal(price), ZonedDateTime.now())
         viewModelScope.launch {

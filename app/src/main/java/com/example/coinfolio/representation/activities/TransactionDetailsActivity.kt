@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.coinfolio.CoinFolioApp
+import com.example.coinfolio.Constants
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.representation.viewmodels.TransactionDetailsViewModel
 import com.example.coinfolio.representation.viewmodels.TransactionDetailsViewModelFactory
+import com.example.coinfolio.utils.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.activity_transaction_details.*
 import java.math.BigDecimal
 
@@ -27,9 +29,6 @@ class TransactionDetailsActivity : AppCompatActivity() {
             viewModelProviderFactory
         )[TransactionDetailsViewModel::class.java]
     }
-
-    //    private val walletId = SharedPreferencesUtil.readFromSharedPreferences(this, Constants.WALLET_ID)!!
-    private val walletId = "1234567890"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,9 +58,7 @@ class TransactionDetailsActivity : AppCompatActivity() {
             viewModel.saveTransaction(
                 spinner_transaction_details.selectedItem.toString(),
                 edit_amount.text.toString(),
-                edit_price.text.toString(),
-                walletId
-            )
+                edit_price.text.toString())
             onBackPressed()
         }
 

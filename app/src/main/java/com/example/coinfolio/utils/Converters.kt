@@ -6,6 +6,8 @@ import java.math.BigDecimal
 import java.sql.Timestamp
 import java.time.ZoneId
 import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 class Converters {
     @TypeConverter
@@ -34,11 +36,12 @@ class Converters {
 
     @TypeConverter
     fun zonedDateTimeToString(input: ZonedDateTime): String {
-        return input.toString()
+        val formattedDateTime = input.truncatedTo(ChronoUnit.SECONDS)
+        return DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(formattedDateTime)
     }
 
     @TypeConverter
-    fun stringToZonedDateTime(input: String): ZonedDateTime {
+    fun stringToZonedDateTime(input: String?): ZonedDateTime {
         if (input.isNullOrBlank()) return ZonedDateTime.of(0,0,0,0,0,0,0, ZoneId.systemDefault())
         return ZonedDateTime.parse(input)
     }

@@ -15,14 +15,13 @@ import java.time.ZonedDateTime
 
 class WalletViewModel(
     private val cryptoCurrencyRepository: CryptoCurrencyRepository,
-    private val walletRepository: WalletRepository
+    private val walletRepository: WalletRepository,
+    private val walletId : String
 ) : ViewModel() {
 
     val mAllCryptoCurrenciesDTO: LiveData<WalletWithTransactions> = liveData {
-        emit(walletRepository.getWalletWithTransactions(testWalletId))
+        emit(walletRepository.getWalletWithTransactions(walletId))
     }
-
-    val testWalletId = "1234567890"
 
     // TODO: Reload the wallet when new coin was added
 //    fun loadWallet() {
@@ -33,7 +32,7 @@ class WalletViewModel(
 
     fun retrieveTestWallet() {
         viewModelScope.launch {
-            val wallet = walletRepository.getWalletWithTransactions(testWalletId)
+            val wallet = walletRepository.getWalletWithTransactions(walletId)
             val t = walletRepository.getAllTransactions()
             var s = wallet
             var p = t
@@ -42,7 +41,7 @@ class WalletViewModel(
 
     fun createTestWallet() {
         viewModelScope.launch {
-            val wallet = WalletDTO(testWalletId)
+            val wallet = WalletDTO(walletId)
             walletRepository.createWallet(wallet)
 //            var coin: CryptoCurrencyDTO
 //            val coinJob = withContext(context = Dispatchers.Default) {
@@ -50,7 +49,7 @@ class WalletViewModel(
 //            }
             val transfersDTO = TransactionDTO(
                 1,
-                testWalletId,
+                walletId,
                 "BTC",
                 TransferTypeEnum.DEPOSIT,
                 BigDecimal(12),

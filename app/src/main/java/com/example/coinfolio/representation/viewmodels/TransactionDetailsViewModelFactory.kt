@@ -27,7 +27,7 @@ class TransactionDetailsViewModelFactory(val app: CoinFolioApp, val intent: Inte
 
         val walletRepository = WalletRepository(app.applicationContext, walletDao, transferDao, cryptoCurrencyDao, walletService)
         //TODO: Add Transfertypeenum!
-        val viewModel = TransactionDetailsViewModel(TransferTypeEnum.DEPOSIT,cryptoCurrencyRepository, walletRepository)
+        val viewModel = TransactionDetailsViewModel(TransferTypeEnum.DEPOSIT,cryptoCurrencyRepository, walletRepository, CoinFolioApp.walletId)
         return viewModel as T
     }
 }

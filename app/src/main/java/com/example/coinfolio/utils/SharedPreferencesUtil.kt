@@ -17,7 +17,7 @@ class SharedPreferencesUtil {
 
         fun readFromSharedPreferences(activity: Activity?, key: String): String? {
             val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
-            return sharedPref?.getString(key, "0")
+            return sharedPref?.getString(key, null)
 
         }
     }

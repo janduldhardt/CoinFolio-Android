@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         if(hasWalletId()){
+            CoinFolioApp.walletId = SharedPreferencesUtil.readFromSharedPreferences(this, Constants.WALLET_ID)!!
             openMainActivity()
         }
 
@@ -44,6 +45,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btn_login.setOnClickListener {
+            val walletSeed = edit_wallet_login.text.toString()
+
             if (!seedIsValid()) {
                 return@setOnClickListener
             }
@@ -53,6 +56,9 @@ class LoginActivity : AppCompatActivity() {
                 Constants.WALLET_ID,
                 edit_wallet_login.text.toString()
             )
+
+            viewModel.login(walletSeed)
+            CoinFolioApp.walletId = walletSeed
             openMainActivity()
         }
     }

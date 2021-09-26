@@ -34,8 +34,12 @@ class TransactionDTO(
     val priceAtTransaction: BigDecimal,
     @ColumnInfo
     val zonedDateTime: ZonedDateTime
-
 )
+{
+
+}
+
+
 
 enum class TransferTypeEnum {
     WITHDRAWL,

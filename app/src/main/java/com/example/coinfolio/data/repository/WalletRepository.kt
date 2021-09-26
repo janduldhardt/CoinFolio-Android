@@ -18,19 +18,18 @@ class WalletRepository(
 ) {
 
     suspend fun getWallet(walletId: String) = walletDao.getWalletById(walletId)
-    suspend fun getWalletWithTransactions(walletId: String) = walletDao.getWalletWithTransfersById(walletId)
+    suspend fun getWalletWithTransactions(walletId: String) =
+        walletDao.getWalletWithTransfersById(walletId)
+
     suspend fun getAllTransactions() = transactionDao.getAllTransactions()
 
-    suspend fun createTransaction(transactionDTO: TransactionDTO) = transactionDao.createTransaction(transactionDTO)
-
-
-    suspend fun createWallet(walletDTO: WalletDTO)  = walletDao.createWallet(walletDTO)
-    suspend fun createWallet(walletWithTransactions: WalletWithTransactions) {
-//        walletDao.createWallet(walletWithTransactions.walletDTO)
-//        val transfers = walletWithTransactions.transactions.map {
-//            it.transactionDTO
-//        }
-//        transactionDao.createTransfers(*transfers.toTypedArray())
+    suspend fun createTransaction(transactionDTO: TransactionDTO) {
+        transactionDao.createTransaction(transactionDTO)
+        walletService.uploadTransaction(transactionDTO)
     }
+
+
+    suspend fun createWallet(walletDTO: WalletDTO) = walletDao.createWallet(walletDTO)
+
 
 }

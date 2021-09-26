@@ -1,7 +1,5 @@
 package com.example.coinfolio.utils
 
-import com.google.firebase.database.DatabaseReference
-
 import com.google.firebase.database.FirebaseDatabase
 
 
