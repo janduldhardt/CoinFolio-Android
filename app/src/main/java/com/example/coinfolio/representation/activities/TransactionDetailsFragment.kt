@@ -8,12 +8,14 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.data.dto.TransferTypeEnum
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.skydoves.powerspinner.*
 import kotlinx.android.synthetic.main.details_layout.*
 import kotlinx.android.synthetic.main.details_layout.view.*
 import java.math.BigDecimal
@@ -35,6 +37,8 @@ class TransactionDetailsFragment : Fragment() {
 
     private lateinit var navBar: NavigationBarView
 
+    private lateinit var spinnerItemList: MutableList<IconSpinnerItem>
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,10 +48,7 @@ class TransactionDetailsFragment : Fragment() {
         parentViewModel = (activity as MainActivity).viewModel
 
         val coinListObserver = Observer<List<CryptoCurrencyDTO>> {
-            val cryptoCoinStringList = it.map { it.abbreviation }
-            val arrayAdapter =
-                ArrayAdapter(context, android.R.layout.simple_spinner_item, cryptoCoinStringList)
-            spinner_transaction_details.adapter = arrayAdapter
+            setCoinSpinner(it)
         }
 
         spinner_transaction_type.adapter = ArrayAdapter<TransferTypeEnum>(
@@ -70,8 +71,9 @@ class TransactionDetailsFragment : Fragment() {
                 Toast.makeText(context, R.string.CheckInvalidFields, Toast.LENGTH_SHORT)
                     .show()
             }
+            val selectedCoin = spinnerItemList[spinner_transaction_details.selectedIndex]
             parentViewModel.saveTransaction(
-                spinner_transaction_details.selectedItem.toString(),
+                selectedCoin.text.toString(),
                 edit_amount.text.toString(),
                 edit_price.text.toString(),
                 spinner_transaction_type.selectedItem as TransferTypeEnum
@@ -79,6 +81,25 @@ class TransactionDetailsFragment : Fragment() {
             navigateBackToWallet()
         }
 
+    }
+
+    private fun setCoinSpinner(coins: List<CryptoCurrencyDTO>) {
+        spinnerItemList = mutableListOf<IconSpinnerItem>()
+        for (coin in coins) {
+            val newItem = IconSpinnerItem(text = coin.abbreviation)
+            spinnerItemList.add(newItem)
+        }
+        spinnerItemList.sortBy { it.text.toString() }
+
+        spinner_transaction_details.apply {
+            setSpinnerAdapter(IconSpinnerAdapter(this))
+            setItems(
+                spinnerItemList
+            )
+            getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
+            selectItemByIndex(0) // select an item initially.
+            lifecycleOwner = viewLifecycleOwner
+        }
     }
 
     private fun navigateBackToWallet() {
