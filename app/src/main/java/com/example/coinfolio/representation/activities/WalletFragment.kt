@@ -30,14 +30,15 @@ class WalletFragment : Fragment() {
 
     private lateinit var mCoinListAdapter: WalletCoinListAdapter
 
-    private val parentViewModel: MainViewModel = (activity as MainActivity).viewModel
+    private lateinit var parentViewModel: MainViewModel
 
-        override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? = inflater.inflate(R.layout.activity_wallet, container, false).apply {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.activity_wallet, container, false).apply {
 
+        parentViewModel = (activity as MainActivity).viewModel
 
         val rv = findViewById<RecyclerView>(R.id.RecyclerView_activity_wallet)
         rv.layoutManager = LinearLayoutManager(context)
