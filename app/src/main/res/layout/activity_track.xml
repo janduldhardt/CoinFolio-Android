@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A1F43"
-    tools:context=".representation.activities.WalletActivity">
+    android:background="#0A1F43">
 
     <TextView
         android:id="@+id/titleText_activity_track"
