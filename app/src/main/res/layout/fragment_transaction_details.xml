@@ -10,7 +10,7 @@
         android:id="@+id/toolbar_transaction_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/mainAppColor"
+        android:background="@color/primaryColor"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
-            android:background="@color/mainAppColor"
+            android:background="@color/textColorOnPrimary"
             android:src="@drawable/ic_baseline_close_24" />
 
         <ImageButton
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
-            android:background="@color/mainAppColor"
+            android:background="@color/textColorOnPrimary"
             android:src="@drawable/ic_baseline_check_24" />
     </Toolbar>
 

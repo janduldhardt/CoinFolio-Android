@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColorLight"
     tools:context=".representation.activities.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -14,8 +15,11 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
+        android:background="@color/primaryColor"
         android:layout_width="match_parent"
         android:layout_height="75dp"
+        app:itemTextColor="@color/textColorOnPrimary"
+        app:itemIconTint="@color/textColorOnPrimary"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_menu"/>
 

@@ -6,6 +6,7 @@
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable-xhdpi/button.xml" value="0.24375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable/bg_gradient.xml" value="0.24375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.24375" />
+        <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable/main_activity_bg.xml" value="0.2109375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable/splash_background.xml" value="0.24375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/activity_login.xml" value="0.228125" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/activity_main.xml" value="0.19832826747720364" />
@@ -14,6 +15,8 @@
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/activity_transaction_details.xml" value="0.22760416666666666" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/activity_wallet.xml" value="0.22760416666666666" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/bottom_menu.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/fragment_track.xml" value="0.2421875" />
+        <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/fragment_transaction_details.xml" value="0.2421875" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/list_top_currencies.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/track_coin_list_item.xml" value="0.22760416666666666" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/menu/bottom_menu.xml" value="0.19479166666666667" />

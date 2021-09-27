@@ -6,19 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.example.coinfolio.CoinFolioApp
-import com.example.coinfolio.Constants
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.representation.viewmodels.MainViewModel
-import com.example.coinfolio.representation.viewmodels.TransactionDetailsViewModel
-import com.example.coinfolio.representation.viewmodels.TransactionDetailsViewModelFactory
-import com.example.coinfolio.utils.SharedPreferencesUtil
-import kotlinx.android.synthetic.main.activity_transaction_details.*
+import kotlinx.android.synthetic.main.fragment_transaction_details.*
 import java.math.BigDecimal
 
 class TransactionDetailsFragment : Fragment() {
@@ -40,7 +33,7 @@ class TransactionDetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.activity_transaction_details, container, false).apply {
+    ): View? = inflater.inflate(R.layout.fragment_transaction_details, container, false).apply {
 
 
         val coinListObserver = Observer<List<CryptoCurrencyDTO>> {

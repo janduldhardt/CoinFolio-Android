@@ -14,9 +14,9 @@ class CryptoCurrencyRepository(
 
     suspend fun getCryptoCurrencies(): List<CryptoCurrencyDTO> {
 //        TODO: Uncomment to get data from remote
-        if (!ConnectionUtil.isOnline(context)) {
+//        if (!ConnectionUtil.isOnline(context)) {
             return getCryptoCurrenciesLocal()
-        }
+//        }
         return getCryptoCurrenciesRemote()
     }
 

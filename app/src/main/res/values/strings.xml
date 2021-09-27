@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CoinFolio</string>
     <string name="wallet_activity_title">Your Wallet</string>
-    <string name="track_activity_title">Track</string>
+    <string name="track_activity_title">Top 100 Crypto Currencies by Marketcap</string>
     <string name="cardview_totalcost">TOTAL COST  </string>
     <string name="cardview_totalprofit">TOTAL PROFIT  </string>
     <string name="EnterAmount">Enter Amount</string>

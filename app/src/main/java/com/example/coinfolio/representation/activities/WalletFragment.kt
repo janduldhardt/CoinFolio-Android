@@ -36,7 +36,7 @@ class WalletFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.activity_wallet, container, false).apply {
+    ): View? = inflater.inflate(R.layout.fragment_wallet, container, false).apply {
 
         parentViewModel = (activity as MainActivity).viewModel
 

@@ -6,17 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.*
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.representation.adapter.TrackCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
-import com.example.coinfolio.representation.viewmodels.TopCryptoCurrenciesViewModel
-import com.example.coinfolio.representation.viewmodels.TopCryptoCurrenciesViewModelProviderFactory
-import com.example.coinfolio.utils.SharedPreferencesUtil
-import kotlinx.android.synthetic.main.activity_track.*
 
 class TopCryptoCurrenciesFragment : Fragment() {
 //    private val viewModel: TopCryptoCurrenciesViewModel by lazy {
@@ -38,7 +33,7 @@ class TopCryptoCurrenciesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.activity_track, container, false).apply {
+    ): View? = inflater.inflate(R.layout.fragment_track, container, false).apply {
 
         parentViewModel = (activity as MainActivity).viewModel
 
