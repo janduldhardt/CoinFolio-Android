@@ -1,5 +1,6 @@
 package com.example.coinfolio.representation.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,9 @@ import com.example.coinfolio.R
 import com.example.coinfolio.data.relation.WalletWithTransactions
 import com.example.coinfolio.representation.adapter.WalletCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
+import kotlinx.android.synthetic.main.fragment_wallet.*
+import kotlinx.android.synthetic.main.fragment_wallet.btn_open_transaction_details
+import kotlinx.android.synthetic.main.fragment_wallet.view.*
 
 class WalletFragment : Fragment() {
 
@@ -50,22 +54,13 @@ class WalletFragment : Fragment() {
 
         parentViewModel.mWalletWithTransactions.observe(viewLifecycleOwner, coinListObserver)
 
-//        button_test1.setOnClickListener {
-//            viewModel.retrieveTestWallet()
-//        }
-
-//        trackButton.setOnClickListener {
-//            onBackPressed()
-//        }
-
-//        addButton.setOnClickListener {
-//            openTransactionDetails()
-//        }
+        btn_open_transaction_details?.setOnClickListener {
+            openTransactionDetails()
+        }
 
     }
 
     private fun openTransactionDetails() {
-//        val intent = Intent(this, TransactionDetailsFragment::class.java)
-//        startActivity(intent)
+        (activity as MainActivity?)?.openTransactionDetailsFragment()
     }
 }

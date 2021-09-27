@@ -24,12 +24,17 @@ class MainActivity : AppCompatActivity() {
         )[MainViewModel::class.java]
     }
 
+    private lateinit var walletFragment: WalletFragment
+    private lateinit var trackFragment: TopCryptoCurrenciesFragment
+    private lateinit var detailsFragment: TransactionDetailsFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val trackFragment = TopCryptoCurrenciesFragment()
-        val walletFragment = WalletFragment()
+        trackFragment = TopCryptoCurrenciesFragment()
+        walletFragment = WalletFragment()
+        detailsFragment = TransactionDetailsFragment()
         replaceFragment(TopCryptoCurrenciesFragment())
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
@@ -46,5 +51,13 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.fragmentContainerView, fragment)
             .commit()
+    }
+
+    fun openTransactionDetailsFragment(){
+        replaceFragment(detailsFragment)
+    }
+
+    fun openWalletFragment(){
+        replaceFragment(walletFragment)
     }
 }

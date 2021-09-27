@@ -15,10 +15,13 @@
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/activity_transaction_details.xml" value="0.22760416666666666" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/activity_wallet.xml" value="0.22760416666666666" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/bottom_menu.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/details_layout.xml" value="0.1984375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/fragment_track.xml" value="0.2421875" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/fragment_transaction_details.xml" value="0.2421875" />
+        <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/fragment_wallet.xml" value="0.2421875" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/list_top_currencies.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/track_coin_list_item.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/layout/wallet_coin_list_item.xml" value="0.2421875" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/menu/bottom_menu.xml" value="0.19479166666666667" />
       </map>
     </option>
