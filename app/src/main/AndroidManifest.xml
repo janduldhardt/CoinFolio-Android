@@ -29,13 +29,13 @@
             android:name=".representation.activities.TransactionDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".representation.activities.TrackActivity"
+            android:name=".representation.activities.MainActivity"
             android:exported="true" />
         <activity
             android:name=".representation.activities.WalletActivity"
             android:exported="true" />
         <activity
-            android:name=".representation.activities.MainActivity"
+            android:name=".representation.activities.TopCryptoCurrenciesActivity"
             android:exported="true" />
     </application>
 

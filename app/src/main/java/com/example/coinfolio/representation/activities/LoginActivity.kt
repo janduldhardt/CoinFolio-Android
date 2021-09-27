@@ -9,8 +9,6 @@ import com.example.coinfolio.CoinFolioApp
 import com.example.coinfolio.Constants
 import com.example.coinfolio.representation.viewmodels.LoginViewModel
 import com.example.coinfolio.representation.viewmodels.LoginViewModelFactory
-import com.example.coinfolio.representation.viewmodels.TopCryptoCurrenciesViewModel
-import com.example.coinfolio.representation.viewmodels.TopCryptoCurrenciesViewModelProviderFactory
 import com.example.coinfolio.utils.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
@@ -81,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun openMainActivity(){
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, TopCryptoCurrenciesActivity::class.java))
         finish()
     }
 }
