@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun openMainActivity(){
-        startActivity(Intent(this, TopCryptoCurrenciesActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 }

@@ -34,9 +34,6 @@
         <activity
             android:name=".representation.activities.WalletActivity"
             android:exported="true" />
-        <activity
-            android:name=".representation.activities.TopCryptoCurrenciesActivity"
-            android:exported="true" />
     </application>
 
 </manifest>
