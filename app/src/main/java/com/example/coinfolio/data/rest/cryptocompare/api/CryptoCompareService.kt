@@ -1,5 +1,6 @@
 package com.example.coinfolio.data.rest.cryptocompare.api
 
+import androidx.lifecycle.LiveData
 import com.example.coinfolio.data.rest.cryptocompare.models.CryptoCompareResponse
 import retrofit2.Call
 import retrofit2.http.GET

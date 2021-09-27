@@ -1,5 +1,6 @@
 package com.example.coinfolio.data.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -9,7 +10,7 @@ import com.example.coinfolio.data.dto.TransactionDTO
 @Dao
 interface TransactionDao {
     @Query("SELECT * FROM transactiondto")
-    suspend fun getAllTransactions() : List<TransactionDTO>
+    fun getAllTransactions() : LiveData<List<TransactionDTO>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun createTransaction(transaction : TransactionDTO)

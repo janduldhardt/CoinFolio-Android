@@ -57,8 +57,8 @@ class TransactionDetailsFragment : Fragment() {
         )
 
         parentViewModel.mAllCryptoCurrenciesDTO.observe(viewLifecycleOwner, coinListObserver)
-        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        navBar?.visibility = View.GONE
+        navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar.visibility = View.GONE
 
         btn_close_details.setOnClickListener {
             navigateBackToWallet()

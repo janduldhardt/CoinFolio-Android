@@ -20,13 +20,12 @@ class MainViewModel(
     private val cryptoCurrencyRepository: CryptoCurrencyRepository,
     private val walletRepository: WalletRepository
 ) : ViewModel() {
-    val mAllCryptoCurrenciesDTO: LiveData<List<CryptoCurrencyDTO>> = liveData {
-        emit(cryptoCurrencyRepository.getCryptoCurrencies())
-    }
+    val mAllCryptoCurrenciesDTO: LiveData<List<CryptoCurrencyDTO>> =
+        cryptoCurrencyRepository.getCryptoCurrencies()
 
-    val mWalletWithTransactions: LiveData<WalletWithTransactions> = liveData {
-        emit(walletRepository.getWalletWithTransactions(walletId))
-    }
+
+    val mWalletWithTransactions: LiveData<WalletWithTransactions> =
+        walletRepository.getWalletWithTransactions(walletId)
 
     fun saveTransaction(
         abbreviation: String,

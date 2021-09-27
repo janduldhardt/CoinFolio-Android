@@ -18,7 +18,7 @@ class WalletRepository(
 ) {
 
     suspend fun getWallet(walletId: String) = walletDao.getWalletById(walletId)
-    suspend fun getWalletWithTransactions(walletId: String) =
+    fun getWalletWithTransactions(walletId: String) =
         walletDao.getWalletWithTransfersById(walletId)
 
     suspend fun getAllTransactions() = transactionDao.getAllTransactions()
