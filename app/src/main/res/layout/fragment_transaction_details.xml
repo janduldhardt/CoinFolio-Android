@@ -34,11 +34,12 @@
         android:id="@+id/spinner_transaction_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Select Crypto"
+        android:gravity="start"
+        android:hint="Select Cryptocurrency"
         android:padding="10dp"
         android:textColor="@color/textColorOnPrimary"
         app:spinner_arrow_gravity="end"
+        app:spinner_arrow_tint="@color/textColorOnPrimary"
         app:spinner_arrow_padding="8dp"
         app:spinner_divider_color="@color/textColorOnPrimary"
         app:spinner_popup_background="@color/primaryColorDark"
@@ -63,9 +64,22 @@
         android:inputType="numberDecimal"
         android:textColor="@color/textColorOnPrimary" />
 
-    <Spinner
+    <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/spinner_transaction_type"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="Select transaction type"
+        android:padding="10dp"
+        android:textColor="@color/textColorOnPrimary"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_tint="@color/textColorOnPrimary"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_divider_color="@color/textColorOnPrimary"
+        app:spinner_popup_background="@color/primaryColorDark"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_elevation="14dp" />
 
 </LinearLayout>
