@@ -6,11 +6,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.coinfolio.CoinFolioApp
 import com.example.coinfolio.R
+import com.example.coinfolio.databinding.ActivityLoginBinding
+import com.example.coinfolio.databinding.ActivityMainBinding
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.example.coinfolio.representation.viewmodels.MainViewModelFactory
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     val viewModel: MainViewModel by lazy {
         val app = application as CoinFolioApp
         val viewModelProviderFactory =
@@ -28,16 +32,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var trackFragment: TopCryptoCurrenciesFragment
     private lateinit var detailsFragment: TransactionDetailsFragment
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         trackFragment = TopCryptoCurrenciesFragment()
         walletFragment = WalletFragment()
         detailsFragment = TransactionDetailsFragment()
         replaceFragment(TopCryptoCurrenciesFragment())
 
-        bottomNavigationView.setOnNavigationItemSelectedListener {
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.trackMenuItem -> replaceFragment(trackFragment)
                 R.id.walletMenuItem -> replaceFragment(walletFragment)

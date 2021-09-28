@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.*
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
+import com.example.coinfolio.databinding.FragmentTrackBinding
+import com.example.coinfolio.databinding.FragmentWalletBinding
 import com.example.coinfolio.representation.adapter.TrackCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 
@@ -29,12 +31,15 @@ class TopCryptoCurrenciesFragment : Fragment() {
 
     private lateinit var parentViewModel: MainViewModel
 
+    private var _binding: FragmentTrackBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_track, container, false).apply {
-
+        _binding = FragmentTrackBinding.inflate(inflater, container, false)
         parentViewModel = (activity as MainActivity).viewModel
 
         // Set RecyclerView
@@ -53,6 +58,11 @@ class TopCryptoCurrenciesFragment : Fragment() {
 //        }
 
 //        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

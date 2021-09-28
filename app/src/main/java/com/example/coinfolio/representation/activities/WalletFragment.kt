@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.R
 import com.example.coinfolio.data.relation.WalletWithTransactions
+import com.example.coinfolio.databinding.DetailsLayoutBinding
+import com.example.coinfolio.databinding.FragmentWalletBinding
 import com.example.coinfolio.representation.adapter.WalletCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
-import kotlinx.android.synthetic.main.fragment_wallet.*
-import kotlinx.android.synthetic.main.fragment_wallet.btn_open_transaction_details
-import kotlinx.android.synthetic.main.fragment_wallet.view.*
 
 class WalletFragment : Fragment() {
+
+    private var _binding: FragmentWalletBinding? = null
+    private val binding get() = _binding!!
 
 //    private val viewModel: WalletViewModel by lazy {
 //        val app = application as CoinFolioApp
@@ -41,6 +43,7 @@ class WalletFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_wallet, container, false).apply {
+        _binding = FragmentWalletBinding.inflate(inflater, container, false)
 
         parentViewModel = (activity as MainActivity).viewModel
 
@@ -54,10 +57,18 @@ class WalletFragment : Fragment() {
 
         parentViewModel.mWalletWithTransactions.observe(viewLifecycleOwner, coinListObserver)
 
-        btn_open_transaction_details?.setOnClickListener {
+        binding.btnOpenTransactionDetails?.setOnClickListener {
             openTransactionDetails()
         }
 
+        val view = binding.root
+        return view
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun openTransactionDetails() {
