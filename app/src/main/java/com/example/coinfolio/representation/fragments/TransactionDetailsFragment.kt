@@ -69,7 +69,8 @@ class TransactionDetailsFragment : Fragment() {
                 selectedCoin.text.toString(),
                 binding.editAmount.text.toString(),
                 binding.editPrice.text.toString(),
-                binding.spinnerTransactionType.selectedItem as TransferTypeEnum
+//                binding.spinnerTransactionType.selectedItem as TransferTypeEnum
+            TransferTypeEnum.DEPOSIT
             )
             navigateBackToWallet()
         }

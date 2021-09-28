@@ -1,162 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A1F43"
+    android:orientation="vertical"
+    android:background="@color/primaryColorLight"
     tools:context=".representation.fragments.WalletFragment">
 
-    <LinearLayout
-        android:id="@+id/linearlayout_section3"
-        android:layout_width="411dp"
-        android:layout_height="39dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04">
-
-        <TextView
-            android:id="@+id/titleText_activity_track"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:text="@string/wallet_activity_title"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primaryColor"
+        android:title="@string/portfolio">
 
         <ImageButton
-            android:id="@+id/btn_open_transaction_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="10dp"
-            android:background="#0A1F43"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_add" />
+            android:id="@+id/add_transaction"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_add"
+            android:backgroundTint="@color/textColorOnPrimary" />
+    </Toolbar>
 
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="410dp"
-        android:layout_height="478dp"
-        android:layout_marginTop="20dp"
+    <TextView
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:text="@string/total_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout_section3">
+        android:textColor="@color/textColorOnPrimary" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textview_wallet_total_amount_fiat"
+        android:layout_marginTop="16dp"
+        android:textSize="26sp"
+        android:text="$4,070.65"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="133dp"
-                android:layout_marginStart="25sp"
-                android:baselineAligned="false"
-                android:orientation="horizontal"
-                android:textAlignment="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Balances"
+        android:textColor="@color/textColorOnPrimary"
+        android:layout_margin="8dp"
+        />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
-                    android:layout_width="170dp"
-                    android:layout_height="130dp"
-                    app:cardCornerRadius="25dp"
-                    app:contentPaddingLeft="10sp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-                    <LinearLayout
-                        android:id="@+id/linearlayout_section1"
-                        android:layout_width="match_parent"
-                        android:layout_height="101dp"
-                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/textView_cost_title"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:text="@string/cardview_totalcost"
-                            android:textColor="#505050"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/textView_cost_value"
-                            android:layout_width="match_parent"
-                            android:layout_height="57dp"
-                            android:layout_marginTop="15sp"
-                            android:layout_weight="1"
-                            android:text="TextView"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="170sp"
-                    android:layout_height="130dp"
-                    android:layout_marginStart="15sp"
-                    app:cardCornerRadius="25sp"
-                    app:contentPaddingLeft="10sp">
-
-                    <LinearLayout
-                        android:id="@+id/linearlayout_section2"
-                        android:layout_width="match_parent"
-                        android:layout_height="101dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView_profit_title"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
-                            android:text="@string/cardview_totalprofit"
-                            android:textColor="#505050"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/textView_profit_value"
-                            android:layout_width="match_parent"
-                            android:layout_height="57dp"
-                            android:layout_marginTop="15sp"
-                            android:layout_weight="1"
-                            android:text="TextView"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RecyclerView_activity_wallet"
-                android:layout_width="wrap_content"
-                android:layout_height="621dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp" />
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

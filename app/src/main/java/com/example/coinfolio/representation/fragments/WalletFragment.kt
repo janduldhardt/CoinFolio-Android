@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.R
 import com.example.coinfolio.data.relation.WalletWithTransactions
 import com.example.coinfolio.databinding.FragmentWalletBinding
 import com.example.coinfolio.representation.activities.MainActivity
 import com.example.coinfolio.representation.adapter.WalletCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
+import com.example.coinfolio.utils.toUserCryptoCurrencyViewModelList
 
 class WalletFragment : Fragment() {
 
@@ -33,23 +33,22 @@ class WalletFragment : Fragment() {
 
         parentViewModel = (activity as MainActivity).viewModel
 
-        val rv = findViewById<RecyclerView>(R.id.RecyclerView_activity_wallet)
-        rv.layoutManager = LinearLayoutManager(context)
+        binding.recyclerViewWallet.layoutManager = LinearLayoutManager(context)
 
         val coinListObserver = Observer<WalletWithTransactions> {
-            mCoinListAdapter = WalletCoinListAdapter(it.getCryptoCurrencies()) {}
-            rv.adapter = mCoinListAdapter
+            mCoinListAdapter = WalletCoinListAdapter(it.toUserCryptoCurrencyViewModelList()) {}
+            binding.recyclerViewWallet.adapter = mCoinListAdapter
+            binding.textviewWalletTotalAmountFiat.text = "\$${it.getTotalAmountFiat().toPlainString()}"
         }
 
         parentViewModel.mWalletWithTransactions.observe(viewLifecycleOwner, coinListObserver)
 
-        binding.btnOpenTransactionDetails?.setOnClickListener {
+        binding.addTransaction.setOnClickListener {
             openTransactionDetails()
         }
 
         val view = binding.root
         return view
-
     }
 
     override fun onDestroyView() {

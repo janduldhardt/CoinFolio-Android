@@ -36,11 +36,12 @@ data class CryptoCompareResponse(
         for (d in data) {
             val cinfo = d.coinInfo
             val craw = d.rAW
-            if (cinfo == null || craw == null) {
+            val cdisplay = d.dISPLAY
+            if (cinfo == null || craw == null || cdisplay == null) {
                 continue
             }
             val coin =
-                CryptoCurrencyDTO(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.fullImageUrl, BigDecimal( craw.uSD.pRICE))
+                CryptoCurrencyDTO(d.rAW.uSD.fROMSYMBOL, cinfo.fullName, cinfo.fullImageUrl, BigDecimal( craw.uSD.pRICE), cdisplay.uSD.fROMSYMBOL)
             coins.add(coin)
         }
 

@@ -12,4 +12,6 @@
     <string name="GenerateSeed">Generate</string>
     <string name="Login">Login</string>
     <string name="LoignWalletSeedInputError">The entered seed can only contain digits and letters. The length must be between 15 and 255.</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="total_balance">Total Balance</string>
 </resources>
