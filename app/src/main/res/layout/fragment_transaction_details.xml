@@ -36,10 +36,6 @@
 <!--        android:layout_height="wrap_content" />-->
 
     <com.skydoves.powerspinner.PowerSpinnerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/spinner_transaction_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

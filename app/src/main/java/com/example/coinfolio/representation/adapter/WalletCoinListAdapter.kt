@@ -18,7 +18,7 @@ class WalletCoinListAdapter (
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalletCoinListAdapter.ViewHolder =
             ViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.wallet_coin_list_item, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.item_wallet, parent, false)
             )
 
         override fun onBindViewHolder(holder: WalletCoinListAdapter.ViewHolder, position: Int) {

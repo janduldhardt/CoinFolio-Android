@@ -1,6 +1,5 @@
-package com.example.coinfolio.representation.activities
+package com.example.coinfolio.representation.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,26 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.R
 import com.example.coinfolio.data.relation.WalletWithTransactions
+import com.example.coinfolio.databinding.FragmentWalletBinding
+import com.example.coinfolio.representation.activities.MainActivity
 import com.example.coinfolio.representation.adapter.WalletCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
-import kotlinx.android.synthetic.main.fragment_wallet.*
-import kotlinx.android.synthetic.main.fragment_wallet.btn_open_transaction_details
-import kotlinx.android.synthetic.main.fragment_wallet.view.*
 
 class WalletFragment : Fragment() {
 
-//    private val viewModel: WalletViewModel by lazy {
-//        val app = application as CoinFolioApp
-//        val viewModelProviderFactory =
-//            WalletViewModelFactory(
-//                app,
-//                intent
-//            )
-//        ViewModelProvider(
-//            this,
-//            viewModelProviderFactory
-//        )[WalletViewModel::class.java]
-//    }
+    private var _binding: FragmentWalletBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var mCoinListAdapter: WalletCoinListAdapter
 
@@ -41,6 +29,7 @@ class WalletFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_wallet, container, false).apply {
+        _binding = FragmentWalletBinding.inflate(inflater, container, false)
 
         parentViewModel = (activity as MainActivity).viewModel
 
@@ -54,10 +43,18 @@ class WalletFragment : Fragment() {
 
         parentViewModel.mWalletWithTransactions.observe(viewLifecycleOwner, coinListObserver)
 
-        btn_open_transaction_details?.setOnClickListener {
+        binding.btnOpenTransactionDetails?.setOnClickListener {
             openTransactionDetails()
         }
 
+        val view = binding.root
+        return view
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun openTransactionDetails() {

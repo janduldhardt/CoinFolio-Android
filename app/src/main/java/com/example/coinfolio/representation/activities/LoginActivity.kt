@@ -7,14 +7,17 @@ import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import com.example.coinfolio.CoinFolioApp
 import com.example.coinfolio.Constants
+import com.example.coinfolio.databinding.ActivityLoginBinding
 import com.example.coinfolio.representation.viewmodels.LoginViewModel
 import com.example.coinfolio.representation.viewmodels.LoginViewModelFactory
 import com.example.coinfolio.utils.SharedPreferencesUtil
-import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityLoginBinding
+
     private val viewModel: LoginViewModel by lazy {
         val app = application as CoinFolioApp
         val viewModelProviderFactory =
@@ -29,21 +32,23 @@ class LoginActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         if(hasWalletId()){
             CoinFolioApp.walletId = SharedPreferencesUtil.readFromSharedPreferences(this, Constants.WALLET_ID)!!
             openMainActivity()
         }
 
-        btn_generate_wallet_seed.setOnClickListener {
-            edit_wallet_login.text.clear()
+        binding.btnGenerateWalletSeed.setOnClickListener {
+            binding.editWalletLogin.text.clear()
             val seed = UUID.randomUUID().toString().replace(Regex("-"),"")
-            edit_wallet_login.setText(seed)
+            binding.editWalletLogin.setText(seed)
         }
 
-        btn_login.setOnClickListener {
-            val walletSeed = edit_wallet_login.text.toString()
+        binding.btnLogin.setOnClickListener {
+            val walletSeed = binding.editWalletLogin.text.toString()
 
             if (!seedIsValid()) {
                 return@setOnClickListener
@@ -52,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
             SharedPreferencesUtil.writeToSharedPreferences(
                 this,
                 Constants.WALLET_ID,
-                edit_wallet_login.text.toString()
+                binding.editWalletLogin.text.toString()
             )
 
             viewModel.login(walletSeed)
@@ -67,12 +72,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun seedIsValid(): Boolean {
-        val seed = edit_wallet_login.text.toString()
+        val seed = binding.editWalletLogin.text.toString()
         val onlyDigitAndLettersRegex = "[a-zA-Z0-9]*".toRegex()
         var valid = seed.matches(onlyDigitAndLettersRegex)
         valid = valid && seed.length > 15 && seed.length < 255
         if (!valid) {
-            edit_wallet_login.error = R.string.LoignWalletSeedInputError.toString()
+            binding.editWalletLogin.error = R.string.LoignWalletSeedInputError.toString()
             return false
         }
         return true

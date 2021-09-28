@@ -26,13 +26,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".representation.activities.TransactionDetailsFragment"
+            android:name=".representation.fragments.TransactionDetailsFragment"
             android:exported="true" />
         <activity
             android:name=".representation.activities.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".representation.activities.WalletFragment"
+            android:name=".representation.fragments.WalletFragment"
             android:exported="true" />
     </application>
 
