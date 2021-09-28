@@ -24,7 +24,7 @@ class TransactionDetailsFragment : Fragment() {
 
     private lateinit var navBar: NavigationBarView
 
-    private lateinit var spinnerItemList: MutableList<IconSpinnerItem>
+    private lateinit var spinnerCoinItemList: MutableList<IconSpinnerItem>
 
     private var _binding: FragmentTransactionDetailsBinding? = null
     private val binding get() = _binding!!
@@ -43,23 +43,8 @@ class TransactionDetailsFragment : Fragment() {
             setCoinSpinner(it)
         }
 
-        //TODO: PowerSpinner for type not working yet
-        val transferTypeEnumArray = TransferTypeEnum.values().toList()
-        val spinnerItemTypeEnumList = mutableListOf<IconSpinnerItem>()
-        for (type in transferTypeEnumArray) {
-            val newItem = IconSpinnerItem(text = type.toString())
-            spinnerItemTypeEnumList.add(newItem)
-        }
-
-        binding.spinnerTransactionDetails.apply {
-            setSpinnerAdapter(IconSpinnerAdapter(this))
-            setItems(
-                spinnerItemTypeEnumList
-            )
-            getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
-            selectItemByIndex(0) // select an item initially.
-            lifecycleOwner = viewLifecycleOwner
-        }
+        val transferTypes = TransferTypeEnum.values()
+        setTransactionTypeSpinner(transferTypes)
 
         parentViewModel.mAllCryptoCurrenciesDTO.observe(viewLifecycleOwner, coinListObserver)
         navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -75,16 +60,16 @@ class TransactionDetailsFragment : Fragment() {
                 Toast.makeText(context, R.string.CheckInvalidFields, Toast.LENGTH_SHORT)
                     .show()
             }
-            val selectedCoin = spinnerItemList[binding.spinnerTransactionDetails.selectedIndex]
+            val selectedCoin = spinnerCoinItemList[binding.spinnerTransactionDetails.selectedIndex]
             parentViewModel.saveTransaction(
                 selectedCoin.text.toString(),
                 binding.editAmount.text.toString(),
                 binding.editPrice.text.toString(),
-//                binding.spinnerTransactionType.selectedItem as TransferTypeEnum
-            TransferTypeEnum.DEPOSIT
+                transferTypes[binding.spinnerTransactionType.selectedIndex]
             )
             navigateBackToWallet()
         }
+
 
         val view = binding.root
         return view
@@ -96,21 +81,36 @@ class TransactionDetailsFragment : Fragment() {
         _binding = null
     }
 
+    private fun setTransactionTypeSpinner(transferTypes: Array<TransferTypeEnum>) {
+
+        val itemList = transferTypes.map { IconSpinnerItem(text = it.name) }
+
+        binding.spinnerTransactionType.apply {
+            setSpinnerAdapter(IconSpinnerAdapter(this))
+            setItems(
+                itemList
+            )
+            getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
+            selectItemByIndex(0) // select an item initially.
+            lifecycleOwner = viewLifecycleOwner
+        }
+    }
+
     private fun setCoinSpinner(coins: List<CryptoCurrencyDTO>) {
-        spinnerItemList = mutableListOf<IconSpinnerItem>()
+        spinnerCoinItemList = mutableListOf<IconSpinnerItem>()
         for (coin in coins) {
             val newItem = IconSpinnerItem(text = coin.abbreviation)
-            spinnerItemList.add(newItem)
+            spinnerCoinItemList.add(newItem)
         }
-        spinnerItemList.sortBy { it.text.toString() }
+        spinnerCoinItemList.sortBy { it.text.toString() }
 
         binding.spinnerTransactionDetails.apply {
             setSpinnerAdapter(IconSpinnerAdapter(this))
             setItems(
-                spinnerItemList
+                spinnerCoinItemList
             )
             getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
-            selectItemByIndex(0) // select an item initially.
+//            selectItemByIndex(0) // select an item initially.
             lifecycleOwner = viewLifecycleOwner
         }
     }
