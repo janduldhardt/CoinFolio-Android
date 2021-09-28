@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.coinfolio.CoinFolioApp
 import com.example.coinfolio.R
-import com.example.coinfolio.databinding.ActivityLoginBinding
 import com.example.coinfolio.databinding.ActivityMainBinding
+import com.example.coinfolio.representation.fragments.IndexFragment
+import com.example.coinfolio.representation.fragments.TransactionDetailsFragment
+import com.example.coinfolio.representation.fragments.WalletFragment
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.example.coinfolio.representation.viewmodels.MainViewModelFactory
 
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var walletFragment: WalletFragment
-    private lateinit var trackFragment: TopCryptoCurrenciesFragment
+    private lateinit var trackFragment: IndexFragment
     private lateinit var detailsFragment: TransactionDetailsFragment
 
 
@@ -39,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        trackFragment = TopCryptoCurrenciesFragment()
+        trackFragment = IndexFragment()
         walletFragment = WalletFragment()
         detailsFragment = TransactionDetailsFragment()
-        replaceFragment(TopCryptoCurrenciesFragment())
+        replaceFragment(IndexFragment())
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {

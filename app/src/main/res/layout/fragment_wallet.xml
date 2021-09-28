@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0A1F43"
-    tools:context=".representation.activities.WalletFragment">
+    tools:context=".representation.fragments.WalletFragment">
 
     <LinearLayout
         android:id="@+id/linearlayout_section3"

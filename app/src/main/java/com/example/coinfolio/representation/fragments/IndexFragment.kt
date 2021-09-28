@@ -1,4 +1,4 @@
-package com.example.coinfolio.representation.activities
+package com.example.coinfolio.representation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,36 +10,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.*
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
-import com.example.coinfolio.databinding.FragmentTrackBinding
-import com.example.coinfolio.databinding.FragmentWalletBinding
+import com.example.coinfolio.databinding.FragmentIndexBinding
+import com.example.coinfolio.representation.activities.MainActivity
 import com.example.coinfolio.representation.adapter.TrackCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 
-class TopCryptoCurrenciesFragment : Fragment() {
-//    private val viewModel: TopCryptoCurrenciesViewModel by lazy {
-//        val viewModelProviderFactory =
-//            TopCryptoCurrenciesViewModelProviderFactory(
-//                requireContext()
-//            )
-//        ViewModelProvider(
-//            this,
-//            viewModelProviderFactory
-//        )[TopCryptoCurrenciesViewModel::class.java]
-//    }
+class IndexFragment : Fragment() {
 
     private lateinit var mCoinListAdapter: TrackCoinListAdapter
 
     private lateinit var parentViewModel: MainViewModel
 
-    private var _binding: FragmentTrackBinding? = null
+    private var _binding: FragmentIndexBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_track, container, false).apply {
-        _binding = FragmentTrackBinding.inflate(inflater, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_index, container, false).apply {
+        _binding = FragmentIndexBinding.inflate(inflater, container, false)
         parentViewModel = (activity as MainActivity).viewModel
 
         // Set RecyclerView

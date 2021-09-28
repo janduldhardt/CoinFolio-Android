@@ -22,7 +22,7 @@ class TrackCoinListAdapter(
     ): TrackCoinListAdapter.ViewHolder =
         ViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.track_coin_list_item, parent, false)
+                .inflate(R.layout.item_index, parent, false)
         )
 
     override fun onBindViewHolder(holder: TrackCoinListAdapter.ViewHolder, position: Int) {

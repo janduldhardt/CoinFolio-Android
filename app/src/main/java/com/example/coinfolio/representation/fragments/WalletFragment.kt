@@ -1,6 +1,5 @@
-package com.example.coinfolio.representation.activities
+package com.example.coinfolio.representation.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coinfolio.R
 import com.example.coinfolio.data.relation.WalletWithTransactions
-import com.example.coinfolio.databinding.DetailsLayoutBinding
 import com.example.coinfolio.databinding.FragmentWalletBinding
+import com.example.coinfolio.representation.activities.MainActivity
 import com.example.coinfolio.representation.adapter.WalletCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 
@@ -20,19 +19,6 @@ class WalletFragment : Fragment() {
 
     private var _binding: FragmentWalletBinding? = null
     private val binding get() = _binding!!
-
-//    private val viewModel: WalletViewModel by lazy {
-//        val app = application as CoinFolioApp
-//        val viewModelProviderFactory =
-//            WalletViewModelFactory(
-//                app,
-//                intent
-//            )
-//        ViewModelProvider(
-//            this,
-//            viewModelProviderFactory
-//        )[WalletViewModel::class.java]
-//    }
 
     private lateinit var mCoinListAdapter: WalletCoinListAdapter
 

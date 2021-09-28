@@ -1,10 +1,9 @@
-package com.example.coinfolio.representation.activities
+package com.example.coinfolio.representation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,7 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.data.dto.TransferTypeEnum
-import com.example.coinfolio.databinding.DetailsLayoutBinding
+import com.example.coinfolio.databinding.FragmentTransactionDetailsBinding
+import com.example.coinfolio.representation.activities.MainActivity
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
@@ -20,34 +20,22 @@ import com.skydoves.powerspinner.*
 import java.math.BigDecimal
 
 class TransactionDetailsFragment : Fragment() {
-    //    private val viewModel: TransactionDetailsViewModel by lazy {
-//        val app = application as CoinFolioApp
-//        val viewModelProviderFactory =
-//            TransactionDetailsViewModelFactory(
-//                app,
-//                intent
-//            )
-//        ViewModelProvider(
-//            this,
-//            viewModelProviderFactory
-//        )[TransactionDetailsViewModel::class.java]
-//    }
     private lateinit var parentViewModel: MainViewModel
 
     private lateinit var navBar: NavigationBarView
 
     private lateinit var spinnerItemList: MutableList<IconSpinnerItem>
 
-    private var _binding: DetailsLayoutBinding? = null
+    private var _binding: FragmentTransactionDetailsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.details_layout, container, false).apply {
+    ): View? = inflater.inflate(R.layout.fragment_transaction_details, container, false).apply {
 
-        _binding = DetailsLayoutBinding.inflate(inflater, container, false)
+        _binding = FragmentTransactionDetailsBinding.inflate(inflater, container, false)
 
         parentViewModel = (activity as MainActivity).viewModel
 
