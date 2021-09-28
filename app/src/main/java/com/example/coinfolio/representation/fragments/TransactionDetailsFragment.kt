@@ -80,8 +80,8 @@ class TransactionDetailsFragment : Fragment() {
                 selectedCoin.text.toString(),
                 binding.editAmount.text.toString(),
                 binding.editPrice.text.toString(),
-//                transferTypeEnumArray.get(binding.spinnerTransactionType.selectedIndex)
-                TransferTypeEnum.DEPOSIT
+//                binding.spinnerTransactionType.selectedItem as TransferTypeEnum
+            TransferTypeEnum.DEPOSIT
             )
             navigateBackToWallet()
         }

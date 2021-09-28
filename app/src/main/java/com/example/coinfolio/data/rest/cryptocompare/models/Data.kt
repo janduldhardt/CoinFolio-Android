@@ -16,5 +16,5 @@ data class Data (
 
 	@SerializedName("CoinInfo") val coinInfo : CoinInfo?,
 	@SerializedName("RAW") val rAW : RAW?,
-//	@SerializedName("DISPLAY") val dISPLAY : DISPLAY
+	@SerializedName("DISPLAY") val dISPLAY : DISPLAY
 )

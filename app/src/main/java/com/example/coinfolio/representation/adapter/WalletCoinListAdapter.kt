@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.coinfolio.R
-import com.example.coinfolio.data.dto.CryptoCurrencyDTO
+import com.example.coinfolio.data.models.UserCryptoCurrencyViewModel
 
 class WalletCoinListAdapter (
-    private val coinList: List<CryptoCurrencyDTO>,
-    val listener: (CryptoCurrencyDTO) -> Unit
+    private val coinList: List<UserCryptoCurrencyViewModel>,
+    val listener: (UserCryptoCurrencyViewModel) -> Unit
     ) : RecyclerView.Adapter<WalletCoinListAdapter.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalletCoinListAdapter.ViewHolder =
@@ -29,19 +29,21 @@ class WalletCoinListAdapter (
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             private val coinName: TextView = itemView.findViewById(R.id.textView_currency_name)
+            private val coinAmount: TextView = itemView.findViewById(R.id.textView_currency_amount)
             private val coinPrice: TextView = itemView.findViewById(R.id.textView_currency_price)
             private val coinLogo: ImageView = itemView.findViewById(R.id.imageView_currency_logo)
 
-            fun bindItems(coin: CryptoCurrencyDTO) = with(itemView) {
-                coinName.text = "${coin.name} (${coin.abbreviation})"
-                coinPrice.text = "\$${coin.price}"
+            fun bindItems(coin: UserCryptoCurrencyViewModel) = with(itemView) {
+                coinName.text = "${coin.cryptoCurrencyName}"
+                coinPrice.text = "\$${coin.usdAmount}"
+                coinAmount.text = "${coin.coinSymbol}${coin.amount}"
 
                 val circularProgressDrawable = CircularProgressDrawable(context)
                 circularProgressDrawable.strokeWidth = 5f
                 circularProgressDrawable.centerRadius = 30f
                 circularProgressDrawable.start()
 
-                Glide.with(itemView).load(coin.imageUri).centerCrop()
+                Glide.with(itemView).load(coin.logoUrl).centerCrop()
                     .placeholder(circularProgressDrawable).into(coinLogo)
 
                 setOnClickListener { listener(coin) }

@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="horizontal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
-<ImageView
-    android:id="@+id/imageView_currency_logo"
-    android:layout_width="0dp"
-    android:layout_height="50dp"
-    android:layout_margin="8dp"
-    android:layout_weight="1"
-    android:gravity="center"
-    app:srcCompat="@drawable/ic_launcher_foreground" />
+    <ImageView
+        android:id="@+id/imageView_currency_logo"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
-<TextView
-    android:id="@+id/textView_currency_name"
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    android:layout_weight="3"
-    android:gravity="center"
-    android:text="TextView"
-    android:textColor="@color/textColorOnPrimary"
-    android:textSize="22sp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
 
-<TextView
-    android:id="@+id/textView_currency_price"
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    android:layout_weight="2"
-    android:gravity="center"
-    android:textAlignment="gravity"
-    android:maxLines="1"
-    android:text="TextView"
-    android:textColor="@color/textColorOnPrimary"
-    android:textSize="22sp" />
+        <TextView
+            android:id="@+id/textView_currency_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="TextView"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textView_currency_amount"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="TextView"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView_currency_price"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_weight="2"
+        android:maxLines="1"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="@color/textColorOnPrimary"
+        android:textSize="22sp" />
 
 </LinearLayout>

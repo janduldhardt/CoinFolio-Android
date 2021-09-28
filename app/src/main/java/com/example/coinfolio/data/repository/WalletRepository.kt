@@ -28,7 +28,6 @@ class WalletRepository(
         walletService.uploadTransaction(transactionDTO)
     }
 
-
     suspend fun createWallet(walletDTO: WalletDTO) = walletDao.createWallet(walletDTO)
 
     fun addValueEventListenerFirebase(walletId: String) {
