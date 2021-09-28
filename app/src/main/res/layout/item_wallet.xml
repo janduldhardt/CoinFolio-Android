@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView_currency_logo"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="8dp"
         android:layout_weight="1"
         android:gravity="center"

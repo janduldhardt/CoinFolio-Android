@@ -1,5 +1,6 @@
 package com.example.coinfolio.representation.fragments
 
+import android.R.string
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,9 @@ import com.example.coinfolio.representation.activities.MainActivity
 import com.example.coinfolio.representation.adapter.WalletCoinListAdapter
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.example.coinfolio.utils.toUserCryptoCurrencyViewModelList
+import android.R.string.no
+import com.example.coinfolio.utils.toCurrencyString
+
 
 class WalletFragment : Fragment() {
 
@@ -38,7 +42,9 @@ class WalletFragment : Fragment() {
         val coinListObserver = Observer<WalletWithTransactions> {
             mCoinListAdapter = WalletCoinListAdapter(it.toUserCryptoCurrencyViewModelList()) {}
             binding.recyclerViewWallet.adapter = mCoinListAdapter
-            binding.textviewWalletTotalAmountFiat.text = "\$${it.getTotalAmountFiat().toPlainString()}"
+
+            val str = String.format("%,d", no)
+            binding.textviewWalletTotalAmountFiat.text = "\$${it.getTotalAmountFiat().toCurrencyString()}"
         }
 
         parentViewModel.mWalletWithTransactions.observe(viewLifecycleOwner, coinListObserver)

@@ -10,6 +10,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
+import com.example.coinfolio.utils.toCurrencyString
 
 class TrackCoinListAdapter(
     private val coinList: List<CryptoCurrencyDTO>,
@@ -38,7 +39,7 @@ class TrackCoinListAdapter(
 
         fun bindItems(coin: CryptoCurrencyDTO) = with(itemView) {
             coinName.text = "${coin.name} (${coin.abbreviation})"
-            coinPrice.text = "\$${coin.price}"
+            coinPrice.text = "\$${coin.price.toCurrencyString()}"
             val circularProgressDrawable = CircularProgressDrawable(context)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f

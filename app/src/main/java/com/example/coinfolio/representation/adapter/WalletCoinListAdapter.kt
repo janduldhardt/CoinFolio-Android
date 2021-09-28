@@ -10,6 +10,8 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.coinfolio.R
 import com.example.coinfolio.data.models.UserCryptoCurrencyViewModel
+import com.example.coinfolio.utils.toCurrencyString
+import com.example.coinfolio.utils.toString8Decimals
 
 class WalletCoinListAdapter (
     private val coinList: List<UserCryptoCurrencyViewModel>,
@@ -35,15 +37,15 @@ class WalletCoinListAdapter (
 
             fun bindItems(coin: UserCryptoCurrencyViewModel) = with(itemView) {
                 coinName.text = "${coin.cryptoCurrencyName}"
-                coinPrice.text = "\$${coin.usdAmount}"
-                coinAmount.text = "${coin.coinSymbol}${coin.amount}"
+                coinPrice.text = "\$${coin.usdAmount.toCurrencyString()}"
+                coinAmount.text = "${coin.coinSymbol} ${coin.amount.toString8Decimals()}"
 
                 val circularProgressDrawable = CircularProgressDrawable(context)
                 circularProgressDrawable.strokeWidth = 5f
                 circularProgressDrawable.centerRadius = 30f
                 circularProgressDrawable.start()
 
-                Glide.with(itemView).load(coin.logoUrl).centerCrop()
+                Glide.with(itemView).load(coin.logoUrl).fitCenter()
                     .placeholder(circularProgressDrawable).into(coinLogo)
 
                 setOnClickListener { listener(coin) }

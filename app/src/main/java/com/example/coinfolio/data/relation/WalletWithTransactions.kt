@@ -52,7 +52,8 @@ class WalletWithTransactions(
        val map = getCryptoCurrenciesAmountsMap()
         var output = BigDecimal(0)
         map.forEach{
-            output.plus(it.component2())
+            val amnt = it.component1().price * it.component2()
+            output = output.plus(amnt)
         }
         return output
     }
