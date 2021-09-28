@@ -43,12 +43,23 @@ class TransactionDetailsFragment : Fragment() {
             setCoinSpinner(it)
         }
 
-        //TODO: PowerSpinner for type
-//        spinner_transaction_type.adapter = ArrayAdapter<TransferTypeEnum>(
-//            context,
-//            android.R.layout.simple_spinner_item,
-//            TransferTypeEnum.values()
-//        )
+        //TODO: PowerSpinner for type not working yet
+        val transferTypeEnumArray = TransferTypeEnum.values().toList()
+        val spinnerItemTypeEnumList = mutableListOf<IconSpinnerItem>()
+        for (type in transferTypeEnumArray) {
+            val newItem = IconSpinnerItem(text = type.toString())
+            spinnerItemTypeEnumList.add(newItem)
+        }
+
+        binding.spinnerTransactionDetails.apply {
+            setSpinnerAdapter(IconSpinnerAdapter(this))
+            setItems(
+                spinnerItemTypeEnumList
+            )
+            getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
+            selectItemByIndex(0) // select an item initially.
+            lifecycleOwner = viewLifecycleOwner
+        }
 
         parentViewModel.mAllCryptoCurrenciesDTO.observe(viewLifecycleOwner, coinListObserver)
         navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -69,7 +80,8 @@ class TransactionDetailsFragment : Fragment() {
                 selectedCoin.text.toString(),
                 binding.editAmount.text.toString(),
                 binding.editPrice.text.toString(),
-                binding.spinnerTransactionType.selectedItem as TransferTypeEnum
+//                transferTypeEnumArray.get(binding.spinnerTransactionType.selectedIndex)
+                TransferTypeEnum.DEPOSIT
             )
             navigateBackToWallet()
         }
