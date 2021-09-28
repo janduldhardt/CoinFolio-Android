@@ -37,7 +37,8 @@ class IndexFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager(activity)
 
         val coinListObserver = Observer<List<CryptoCurrencyDTO>> {
-            mCoinListAdapter = TrackCoinListAdapter(it) {}
+            val sortedList = it.sortedBy { it.marketCap }.reversed()
+            mCoinListAdapter = TrackCoinListAdapter(sortedList) {}
             rv.adapter = mCoinListAdapter
         }
 

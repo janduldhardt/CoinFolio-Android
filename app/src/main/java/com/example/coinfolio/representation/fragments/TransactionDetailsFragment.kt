@@ -91,7 +91,6 @@ class TransactionDetailsFragment : Fragment() {
                 itemList
             )
             getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
-            selectItemByIndex(0) // select an item initially.
             lifecycleOwner = viewLifecycleOwner
         }
     }
@@ -110,7 +109,6 @@ class TransactionDetailsFragment : Fragment() {
                 spinnerCoinItemList
             )
             getSpinnerRecyclerView().layoutManager = GridLayoutManager(context, 2)
-//            selectItemByIndex(0) // select an item initially.
             lifecycleOwner = viewLifecycleOwner
         }
     }
@@ -123,6 +121,8 @@ class TransactionDetailsFragment : Fragment() {
     private fun isInputValid(): Boolean {
         var amountValid = false
         var priceValid = false
+        var spinnerCoinValid = false
+        var spinnerTransferTypeValid = false
         try {
             BigDecimal(binding.editAmount.text.toString())
             amountValid = true
@@ -137,6 +137,17 @@ class TransactionDetailsFragment : Fragment() {
             binding.editPrice.error = "Enter a decimal"
         }
 
-        return amountValid && priceValid
+
+        if (!binding.spinnerTransactionDetails.isSelected) {
+            spinnerCoinValid = false
+            binding.spinnerTransactionDetails.error = "Select cryptocurrency!"
+        }
+
+        if (!binding.spinnerTransactionType.isSelected) {
+            spinnerTransferTypeValid = false
+            binding.spinnerTransactionDetails.error = "Select transaction type!"
+        }
+
+        return amountValid && priceValid && spinnerTransferTypeValid && spinnerCoinValid
     }
 }

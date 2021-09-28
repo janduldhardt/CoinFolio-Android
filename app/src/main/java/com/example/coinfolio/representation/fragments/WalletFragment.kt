@@ -40,10 +40,9 @@ class WalletFragment : Fragment() {
         binding.recyclerViewWallet.layoutManager = LinearLayoutManager(context)
 
         val coinListObserver = Observer<WalletWithTransactions> {
-            mCoinListAdapter = WalletCoinListAdapter(it.toUserCryptoCurrencyViewModelList()) {}
+            val sortedList = it.toUserCryptoCurrencyViewModelList().sortedBy { it.cryptoCurrencyName }
+            mCoinListAdapter = WalletCoinListAdapter(sortedList) {}
             binding.recyclerViewWallet.adapter = mCoinListAdapter
-
-            val str = String.format("%,d", no)
             binding.textviewWalletTotalAmountFiat.text = "\$${it.getTotalAmountFiat().toCurrencyString()}"
         }
 

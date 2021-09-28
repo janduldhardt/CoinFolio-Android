@@ -23,5 +23,9 @@ data class CryptoCurrencyDTO(
     var price: BigDecimal,
 
     @ColumnInfo
-    val symbol : String
+    val symbol: String,
+
+    @ColumnInfo
+    val marketCap: BigDecimal
+
 )

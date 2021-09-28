@@ -27,7 +27,7 @@ class TrackCoinListAdapter(
         )
 
     override fun onBindViewHolder(holder: TrackCoinListAdapter.ViewHolder, position: Int) {
-        holder.bindItems(coinList[position])
+        holder.bindItems(coinList[position],position)
     }
 
     override fun getItemCount(): Int = coinList.size
@@ -36,16 +36,19 @@ class TrackCoinListAdapter(
         private val coinName: TextView = itemView.findViewById(R.id.textView_currency_name)
         private val coinPrice: TextView = itemView.findViewById(R.id.textView_currency_price)
         private val coinLogo: ImageView = itemView.findViewById(R.id.imageView_currency_logo)
+        private val position: TextView = itemView.findViewById(R.id.textview_index_number)
 
-        fun bindItems(coin: CryptoCurrencyDTO) = with(itemView) {
+        fun bindItems(coin: CryptoCurrencyDTO, index: Int) = with(itemView) {
             coinName.text = "${coin.name} (${coin.abbreviation})"
             coinPrice.text = "\$${coin.price.toCurrencyString()}"
+            position.text = "${index+1}."
+
             val circularProgressDrawable = CircularProgressDrawable(context)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f
             circularProgressDrawable.start()
 
-            Glide.with(itemView).load(coin.imageUri).centerCrop()
+            Glide.with(itemView).load(coin.imageUri).fitCenter()
                 .placeholder(circularProgressDrawable).into(coinLogo)
 
             setOnClickListener { listener(coin) }
