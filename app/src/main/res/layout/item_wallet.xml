@@ -16,19 +16,19 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="0dp"
-        android:layout_margin="0dp"
-        android:padding="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="3">
+        android:layout_margin="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:padding="0dp">
 
         <TextView
             android:id="@+id/textView_currency_name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="bottom"
             android:layout_weight="1"
+            android:gravity="bottom"
             android:text="TextView"
             android:textColor="@color/textColorOnPrimary"
             android:textSize="16sp" />
@@ -37,30 +37,42 @@
             android:id="@+id/textView_currency_amount"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="top"
             android:layout_weight="1"
+            android:gravity="top"
             android:text="TextView"
             android:textColor="@color/textColorOnPrimary"
             android:textSize="12sp" />
+
     </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_marginEnd="8dp"
+            android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:layout_weight="2">
-    <TextView
-        android:id="@+id/textView_currency_price"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="TextView"
-        android:textAlignment="textEnd"
-        android:textColor="@color/textColorOnPrimary"
-        android:textSize="16sp" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/textView_currency_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="bottom"
+            android:text="TextView"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_below="@id/textView_currency_price"
+            android:id="@+id/textView_currency_price_profit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:maxLines="1"
+            android:text="TextView"
+            android:gravity="top"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="12sp" />
+        </RelativeLayout>
+
 </LinearLayout>

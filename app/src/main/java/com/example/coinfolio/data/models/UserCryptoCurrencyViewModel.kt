@@ -7,6 +7,10 @@ data class UserCryptoCurrencyViewModel(
     val logoUrl: String,
     val coinSymbol: String,
     val amount: BigDecimal,
-    val usdAmount: BigDecimal
+    val usdAmount: BigDecimal,
+    val profit : BigDecimal
 ) {
+    fun getProfitInPercent(): BigDecimal {
+        return profit / usdAmount * BigDecimal(100)
+    }
 }

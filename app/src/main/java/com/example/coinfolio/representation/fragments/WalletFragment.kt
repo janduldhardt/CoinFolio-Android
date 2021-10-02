@@ -48,7 +48,7 @@ class WalletFragment : Fragment() {
             val profit = it.getTotalProfitLoss()
             binding.textviewWalletTotalAmountFiatProfit.text = profit.toCurrencyString()
 
-            val textColor = if (profit > BigDecimal(0))  context.getColor((R.color.textColorGreen)) else context.getColor((R.color.textColorRed))
+            val textColor = if (profit >= BigDecimal(0))  context.getColor((R.color.textColorGreen)) else context.getColor((R.color.textColorRed))
                 binding.textviewWalletTotalAmountFiatProfit.setTextColor(textColor)
         }
 

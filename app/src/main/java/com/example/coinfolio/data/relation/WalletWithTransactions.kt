@@ -52,6 +52,7 @@ class WalletWithTransactions(
                 output[abbreviation] = CryptoCurrencyAmountTupleWrapper(
                     mapAbbreviationCryptoCurrency[abbreviation]!!,
                     BigDecimal(0),
+                    BigDecimal(0),
                     BigDecimal(0)
                 )
             }
@@ -60,9 +61,11 @@ class WalletWithTransactions(
             if (transaction.transferType == TransferTypeEnum.DEPOSIT) {
                 tupleWrapper.amountCoins =
                     tupleWrapper.amountCoins.plus(transactionWithCrypto.transactionDTO.amount)
+                tupleWrapper.amountFiatSpent = tupleWrapper.amountFiatSpent.plus(transactionWithCrypto.transactionDTO.priceAtTransaction)
             } else if (transaction.transferType == TransferTypeEnum.WITHDRAWL) {
                 tupleWrapper.amountCoins =
                     tupleWrapper.amountCoins.subtract(transactionWithCrypto.transactionDTO.amount)
+                tupleWrapper.amountFiatSpent = tupleWrapper.amountFiatSpent.subtract(transactionWithCrypto.transactionDTO.priceAtTransaction)
             }
 
             tupleWrapper.amountFiat =
@@ -75,7 +78,8 @@ class WalletWithTransactions(
     class CryptoCurrencyAmountTupleWrapper(
         val cryptoCurrency: CryptoCurrencyDTO,
         var amountFiat: BigDecimal,
-        var amountCoins: BigDecimal
+        var amountCoins: BigDecimal,
+        var amountFiatSpent : BigDecimal
     )
 
 
