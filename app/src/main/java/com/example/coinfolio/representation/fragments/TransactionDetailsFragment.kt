@@ -73,6 +73,7 @@ class TransactionDetailsFragment : Fragment() {
             if (!isInputValid()) {
                 Toast.makeText(context, R.string.CheckInvalidFields, Toast.LENGTH_SHORT)
                     .show()
+                return@setOnClickListener
             }
             val selectedCoin = spinnerCoinItemList[binding.spinnerTransactionDetails.selectedIndex]
             parentViewModel.saveTransaction(
@@ -135,8 +136,8 @@ class TransactionDetailsFragment : Fragment() {
     private fun isInputValid(): Boolean {
         var amountValid = false
         var priceValid = false
-        var spinnerCoinValid = false
-        var spinnerTransferTypeValid = false
+        var spinnerCoinValid = true
+        var spinnerTransferTypeValid = true
         try {
             BigDecimal(binding.editAmount.text.toString())
             amountValid = true
@@ -152,12 +153,12 @@ class TransactionDetailsFragment : Fragment() {
         }
 
 
-        if (!binding.spinnerTransactionDetails.isSelected) {
+        if (binding.spinnerTransactionDetails.selectedIndex == -1) {
             spinnerCoinValid = false
             binding.spinnerTransactionDetails.error = "Select cryptocurrency!"
         }
 
-        if (!binding.spinnerTransactionType.isSelected) {
+        if (binding.spinnerTransactionType.selectedIndex == -1) {
             spinnerTransferTypeValid = false
             binding.spinnerTransactionDetails.error = "Select transaction type!"
         }
