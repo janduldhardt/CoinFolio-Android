@@ -1,4 +1,4 @@
-package com.example.coinfolio.data.models
+package com.example.coinfolio.representation.viewmodels
 
 import java.math.BigDecimal
 

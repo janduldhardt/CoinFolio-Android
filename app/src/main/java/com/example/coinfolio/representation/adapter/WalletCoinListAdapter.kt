@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.coinfolio.R
-import com.example.coinfolio.data.models.UserCryptoCurrencyViewModel
+import com.example.coinfolio.representation.viewmodels.UserCryptoCurrencyViewModel
 import com.example.coinfolio.utils.toCurrencyString
 import com.example.coinfolio.utils.toPercentString
 import com.example.coinfolio.utils.toString8Decimals

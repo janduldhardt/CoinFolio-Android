@@ -1,12 +1,9 @@
 package com.example.coinfolio.utils
 
-import com.example.coinfolio.data.models.UserCryptoCurrencyViewModel
+import com.example.coinfolio.representation.viewmodels.UserCryptoCurrencyViewModel
 import com.example.coinfolio.data.relation.WalletWithTransactions
 import java.math.BigDecimal
 import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.text.NumberFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 fun WalletWithTransactions.toUserCryptoCurrencyViewModelList(): ArrayList<UserCryptoCurrencyViewModel> {
