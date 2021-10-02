@@ -10,4 +10,5 @@ class TransactionDetailsFragmentViewModel : ViewModel() {
     var cryptoCurrencyAbbreviation: String = ""
     var cointAmount: String = ""
     var fiatPrice: String = ""
+
 }

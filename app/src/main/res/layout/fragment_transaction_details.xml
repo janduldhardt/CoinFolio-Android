@@ -38,9 +38,9 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:hint="Select Cryptocurrency"
+        android:padding="16dp"
         android:textColor="@color/textColorOnPrimary"
         android:textSize="18sp"
-        android:padding="4dp"
         app:spinner_arrow_gravity="end"
         app:spinner_arrow_padding="8dp"
         app:spinner_arrow_tint="@color/textColorOnPrimary"
@@ -51,21 +51,38 @@
         app:spinner_popup_background="@color/primaryColorDark"
         app:spinner_popup_elevation="14dp" />
 
-    <EditText
-        android:id="@+id/edit_amount"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/EnterAmount"
-        android:inputType="numberDecimal"
-        android:textColor="@color/textColorOnPrimary" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edit_price"
+        <EditText
+            android:id="@+id/edit_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
+            android:hint="@string/EnterAmount"
+            android:inputType="numberDecimal"
+            android:textColor="@color/textColorOnPrimary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/EnterPrice"
-        android:inputType="numberDecimal"
-        android:textColor="@color/textColorOnPrimary" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/EnterPrice"
+            android:inputType="numberDecimal"
+            android:textSize="18sp"
+            android:textColor="@color/textColorOnPrimary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/spinner_transaction_type"
@@ -73,9 +90,9 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:hint="Select transaction type"
+        android:padding="16dp"
         android:textColor="@color/textColorOnPrimary"
         android:textSize="18sp"
-        android:padding="4dp"
         app:spinner_arrow_gravity="end"
         app:spinner_arrow_padding="8dp"
         app:spinner_arrow_tint="@color/textColorOnPrimary"
