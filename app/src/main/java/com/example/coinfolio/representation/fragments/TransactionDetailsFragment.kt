@@ -5,21 +5,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.coinfolio.CoinFolioApp
 import com.example.coinfolio.R
 import com.example.coinfolio.data.dto.CryptoCurrencyDTO
 import com.example.coinfolio.data.dto.TransferTypeEnum
 import com.example.coinfolio.databinding.FragmentTransactionDetailsBinding
 import com.example.coinfolio.representation.activities.MainActivity
-import com.example.coinfolio.representation.viewmodels.MainViewModel
+import com.example.coinfolio.representation.viewmodels.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.skydoves.powerspinner.*
 import java.math.BigDecimal
 
 class TransactionDetailsFragment : Fragment() {
+
+    private val viewModel: TransactionDetailsFragmentViewModel by lazy {
+        val viewModelProviderFactory =
+            TransactionDetailsFragmentViewModelFactory()
+        ViewModelProvider(
+            this,
+            viewModelProviderFactory
+        )[TransactionDetailsFragmentViewModel::class.java]
+    }
+
+
     private lateinit var parentViewModel: MainViewModel
 
     private lateinit var navBar: NavigationBarView

@@ -14,11 +14,11 @@ fun WalletWithTransactions.toUserCryptoCurrencyViewModelList(): ArrayList<UserCr
     val output = arrayListOf<UserCryptoCurrencyViewModel>()
     for (c in currenciesAndAmountMap) {
         val vm = UserCryptoCurrencyViewModel(
-            c.component1().name,
-            c.component1().imageUri,
-            c.component1().symbol,
-            c.component2(),
-            c.component1().price.multiply(c.component2())
+            c.value.cryptoCurrency.name,
+            c.value.cryptoCurrency.imageUri,
+            c.value.cryptoCurrency.symbol,
+            c.value.amountCoins,
+            c.value.amountFiat
         )
         output.add(vm)
     }
@@ -30,8 +30,9 @@ fun BigDecimal.toString8Decimals() : String{
 }
 
 fun BigDecimal.toCurrencyString() : String{
-    val numberFormat = NumberFormat.getInstance()
-    val currency: Currency = Currency.getInstance(Locale.getDefault())
-    numberFormat.minimumFractionDigits = currency.defaultFractionDigits
-    return numberFormat.format(this.toLong())
+    return DecimalFormat("0.00").format(this)
+//    val numberFormat = NumberFormat.getInstance()
+//    val currency: Currency = Currency.getInstance(Locale.getDefault())
+//    numberFormat.minimumFractionDigits = currency.defaultFractionDigits
+//    return numberFormat.format(this.toLong())
 }

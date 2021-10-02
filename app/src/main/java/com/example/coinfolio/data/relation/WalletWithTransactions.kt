@@ -17,45 +17,58 @@ class WalletWithTransactions(
     )
     val transactions: List<TransactionWithCryptoCurrency>,
 ) {
-//    fun getCryptoCurrencies() : List<CryptoCurrencyDTO>{
-//        return transactions.map { it.cryptoCurrencyDTO }.toSet().toList()
-//    }
 
-    fun getCryptoCurrenciesSet(): Set<CryptoCurrencyDTO> {
+//    val cryptoCurrencyAmountsMap by lazy { getCryptoCurrenciesAmountsMap() }
+
+    fun getTotalAmountFiat(): BigDecimal {
+        return getCryptoCurrenciesAmountsMap().map { it.value.amountFiat }.sumOf { it }
+    }
+
+    private fun getCryptoCurrenciesSet(): Set<CryptoCurrencyDTO> {
         return transactions.map { it.cryptoCurrencyDTO }.toSet()
     }
 
-    fun getCryptoCurrenciesAmountsMap(): Map<CryptoCurrencyDTO, BigDecimal> {
-        val output = hashMapOf<CryptoCurrencyDTO, BigDecimal>()
+    fun getCryptoCurrenciesAmountsMap(): Map<String, CryptoCurrencyAmountTupleWrapper> {
+        val mapAbbreviationCryptoCurrency = mutableMapOf<String, CryptoCurrencyDTO>()
+        transactions.map {
+            mapAbbreviationCryptoCurrency[it.cryptoCurrencyDTO.abbreviation] = it.cryptoCurrencyDTO
+        }
+
+        val output = hashMapOf<String, CryptoCurrencyAmountTupleWrapper>()
 
         for (transactionWithCrypto in transactions) {
             val transaction = transactionWithCrypto.transactionDTO
-            val crypto = transactionWithCrypto.cryptoCurrencyDTO
+            val abbreviation = transactionWithCrypto.cryptoCurrencyDTO.abbreviation
 
-            if (!output.containsKey(crypto)) {
-                output[crypto] = BigDecimal(0)
+            if (!output.containsKey(abbreviation)) {
+                output[abbreviation] = CryptoCurrencyAmountTupleWrapper(
+                    mapAbbreviationCryptoCurrency[abbreviation]!!,
+                    BigDecimal(0),
+                    BigDecimal(0)
+                )
             }
-            val currentAmount = output[crypto]
+            val tupleWrapper = output[abbreviation]!!
 
             if (transaction.transferType == TransferTypeEnum.DEPOSIT) {
-                output[crypto] = (currentAmount!!.plus(transaction.amount))
+                tupleWrapper.amountCoins =
+                    tupleWrapper.amountCoins.plus(transactionWithCrypto.transactionDTO.amount)
+            } else if (transaction.transferType == TransferTypeEnum.WITHDRAWL) {
+                tupleWrapper.amountCoins =
+                    tupleWrapper.amountCoins.subtract(transactionWithCrypto.transactionDTO.amount)
             }
 
-            else if (transaction.transferType == TransferTypeEnum.WITHDRAWL) {
-                output[crypto] = (currentAmount!!.subtract(transaction.amount))
-            }
+            tupleWrapper.amountFiat =
+                tupleWrapper.amountCoins.multiply(tupleWrapper.cryptoCurrency.price)
+
         }
         return output
     }
 
-    fun getTotalAmountFiat(): BigDecimal {
-       val map = getCryptoCurrenciesAmountsMap()
-        var output = BigDecimal(0)
-        map.forEach{
-            val amnt = it.component1().price * it.component2()
-            output = output.plus(amnt)
-        }
-        return output
-    }
+    class CryptoCurrencyAmountTupleWrapper(
+        val cryptoCurrency: CryptoCurrencyDTO,
+        var amountFiat: BigDecimal,
+        var amountCoins: BigDecimal
+    )
+
 
 }
