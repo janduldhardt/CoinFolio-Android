@@ -17,6 +17,7 @@ import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.example.coinfolio.utils.toUserCryptoCurrencyViewModelList
 import android.R.string.no
 import com.example.coinfolio.utils.toCurrencyString
+import java.math.BigDecimal
 
 
 class WalletFragment : Fragment() {
@@ -43,7 +44,12 @@ class WalletFragment : Fragment() {
             val sortedList = it.toUserCryptoCurrencyViewModelList().sortedBy { it.cryptoCurrencyName }
             mCoinListAdapter = WalletCoinListAdapter(sortedList) {}
             binding.recyclerViewWallet.adapter = mCoinListAdapter
-            binding.textviewWalletTotalAmountFiat.text = "\$${it.getTotalAmountFiat().toCurrencyString()}"
+            binding.textviewWalletTotalAmountFiat.text = "${it.getTotalAmountFiat().toCurrencyString()}"
+            val profit = it.getTotalProfitLoss()
+            binding.textviewWalletTotalAmountFiatProfit.text = profit.toCurrencyString()
+
+            val textColor = if (profit > BigDecimal(0))  context.getColor((R.color.textColorGreen)) else context.getColor((R.color.textColorRed))
+                binding.textviewWalletTotalAmountFiatProfit.setTextColor(textColor)
         }
 
         parentViewModel.mWalletWithTransactions.observe(viewLifecycleOwner, coinListObserver)

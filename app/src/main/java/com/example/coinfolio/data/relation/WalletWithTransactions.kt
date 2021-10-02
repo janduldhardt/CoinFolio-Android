@@ -24,6 +24,14 @@ class WalletWithTransactions(
         return getCryptoCurrenciesAmountsMap().map { it.value.amountFiat }.sumOf { it }
     }
 
+    fun getTotalCost() : BigDecimal{
+        return transactions.sumOf { it.transactionDTO.priceAtTransaction }
+    }
+
+    fun getTotalProfitLoss() : BigDecimal{
+        return getTotalAmountFiat() - getTotalCost()
+    }
+
     private fun getCryptoCurrenciesSet(): Set<CryptoCurrencyDTO> {
         return transactions.map { it.cryptoCurrencyDTO }.toSet()
     }

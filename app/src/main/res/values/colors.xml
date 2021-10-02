@@ -11,4 +11,6 @@
     <color name="textColorOnSecondary">#ffffff</color>
     <!-- Status bar color. -->
     <!-- Customize your theme here. -->
+    <color name="textColorRed">#e75757</color>
+    <color name="textColorGreen">#79ea86</color>
 </resources>

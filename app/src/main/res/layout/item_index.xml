@@ -10,16 +10,16 @@
         android:id="@+id/textview_index_number"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="1."
         android:layout_marginLeft="8dp"
         android:gravity="center"
+        android:text="1."
         android:textColor="@color/textColorOnPrimary"
         android:textSize="22sp" />
 
     <ImageView
         android:id="@+id/imageView_currency_logo"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="8dp"
         android:layout_weight="1"
         android:gravity="center"
@@ -31,22 +31,28 @@
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_weight="3"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="@color/textColorOnPrimary"
-        android:textSize="22sp" />
+        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView_currency_price"
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_margin="8dp"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:maxLines="1"
-        android:text="TextView"
-        android:textAlignment="gravity"
-        android:textColor="@color/textColorOnPrimary"
-        android:textSize="22sp" />
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_currency_price"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textAlignment="textEnd"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="16sp" />
+    </RelativeLayout>
 
 </LinearLayout>

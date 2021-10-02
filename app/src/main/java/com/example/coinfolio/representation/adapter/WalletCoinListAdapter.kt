@@ -37,7 +37,7 @@ class WalletCoinListAdapter (
 
             fun bindItems(coin: UserCryptoCurrencyViewModel) = with(itemView) {
                 coinName.text = "${coin.cryptoCurrencyName}"
-                coinPrice.text = "\$${coin.usdAmount.toCurrencyString()}"
+                coinPrice.text = "${coin.usdAmount.toCurrencyString()}"
                 coinAmount.text = "${coin.coinSymbol} ${coin.amount.toString8Decimals()}"
 
                 val circularProgressDrawable = CircularProgressDrawable(context)

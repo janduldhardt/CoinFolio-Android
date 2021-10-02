@@ -29,8 +29,13 @@ fun BigDecimal.toString8Decimals() : String{
     return DecimalFormat("0.00000000").format(this)
 }
 
-fun BigDecimal.toCurrencyString() : String{
-    return DecimalFormat("0.00").format(this)
+fun BigDecimal.toCurrencyString(currencySymbol : String = "$") : String{
+    val isNeg = this < BigDecimal(0)
+    val posThis = if (isNeg) this.multiply(BigDecimal(-1)) else this
+    var formattedString = currencySymbol + DecimalFormat("#,##0.00").format(posThis)
+    formattedString = if (isNeg) "-$formattedString" else formattedString
+    return formattedString
+
 //    val numberFormat = NumberFormat.getInstance()
 //    val currency: Currency = Currency.getInstance(Locale.getDefault())
 //    numberFormat.minimumFractionDigits = currency.defaultFractionDigits

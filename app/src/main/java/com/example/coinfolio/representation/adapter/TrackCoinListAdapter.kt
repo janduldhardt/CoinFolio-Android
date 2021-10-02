@@ -40,7 +40,7 @@ class TrackCoinListAdapter(
 
         fun bindItems(coin: CryptoCurrencyDTO, index: Int) = with(itemView) {
             coinName.text = "${coin.name} (${coin.abbreviation})"
-            coinPrice.text = "\$${coin.price.toCurrencyString()}"
+            coinPrice.text = "${coin.price.toCurrencyString()}"
             position.text = "${index+1}."
 
             val circularProgressDrawable = CircularProgressDrawable(context)

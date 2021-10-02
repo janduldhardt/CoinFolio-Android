@@ -45,6 +45,26 @@
         android:textAlignment="center"
         android:textColor="@color/textColorOnPrimary" />
 
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:text="Total profit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
+
+    <TextView
+        android:id="@+id/textview_wallet_total_amount_fiat_profit"
+        android:layout_marginTop="4dp"
+        android:textSize="20sp"
+        android:text="$4,070.65"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
