@@ -17,8 +17,9 @@
             android:layout_height="24dp"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
-            android:background="@drawable/ic_baseline_close_24"
-            android:backgroundTint="@color/textColorOnPrimary" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_close_24"
+            app:tint="@color/textColorOnPrimary" />
 
         <ImageButton
             android:id="@+id/btn_save_details"
@@ -26,8 +27,9 @@
             android:layout_height="24dp"
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/ic_baseline_check_24"
-            android:backgroundTint="@color/textColorOnPrimary" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_check_24"
+            app:tint="@color/textColorOnPrimary" />
     </Toolbar>
 
     <com.skydoves.powerspinner.PowerSpinnerView

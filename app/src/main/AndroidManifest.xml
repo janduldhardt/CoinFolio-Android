@@ -18,6 +18,7 @@
         android:theme="@style/Theme.CoinFolio">
         <activity
             android:name=".representation.activities.LoginActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,13 +27,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".representation.fragments.TransactionDetailsFragment"
-            android:exported="true" />
-        <activity
             android:name=".representation.activities.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".representation.fragments.WalletFragment"
+            android:screenOrientation="portrait"
             android:exported="true" />
     </application>
 
