@@ -2,6 +2,7 @@ package com.example.coinfolio.representation.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.coinfolio.CoinFolioApp
@@ -12,10 +13,16 @@ import com.example.coinfolio.representation.fragments.TransactionDetailsFragment
 import com.example.coinfolio.representation.fragments.WalletFragment
 import com.example.coinfolio.representation.viewmodels.MainViewModel
 import com.example.coinfolio.representation.viewmodels.MainViewModelFactory
+import android.os.Looper
+
+import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    var doubleBackToExitPressedOnce = false
 
     val viewModel: MainViewModel by lazy {
         val app = application as CoinFolioApp
@@ -62,11 +69,26 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun openTransactionDetailsFragment(){
+    fun openTransactionDetailsFragment() {
         replaceFragment(detailsFragment)
     }
 
-    fun openWalletFragment(){
+    fun openWalletFragment() {
         replaceFragment(walletFragment)
+    }
+
+    override fun onBackPressed() {
+//        super.onBackPressed()
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            doubleBackToExitPressedOnce = false
+        }, 2000)
     }
 }
