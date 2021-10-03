@@ -1,6 +1,11 @@
 # CoinFolio
 Term Project CS3431 2/2021
 
+## Disclamer
+The repository is using git-secret to encrypt sensitive data.
+To be able to build this you must add your own **Keys.kt** and **google-services.json**
+The app is designed to work with https://www.cryptocompare.com/ API but a new service can be added.
+
 ## Abstract
 CoinFolio is a personal guide to track your journey in the world of cryptocurrencies.
 It is designed to track your portfolio with a nice, simple and clean UI with not much clutter.
