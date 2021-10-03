@@ -24,11 +24,14 @@ It is designed to track your portfolio with a nice, simple and clean UI with not
 
 ## API
 https://www.cryptocompare.com/ (For cryptocurrency data)
+
 https://firebase.google.com/ (To sync user wallet)
 
 ## 3rd party libraries
 https://github.com/skydoves/PowerSpinner
+
 https://github.com/bumptech/glide
+
 https://github.com/square/retrofit
 
 ## App architecture
