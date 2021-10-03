@@ -48,6 +48,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_weight="2"
+            android:gravity="center_vertical"
             android:layout_marginEnd="8dp"
             android:layout_height="match_parent">
 
@@ -61,6 +62,15 @@
             android:text="TextView"
             android:textColor="@color/textColorOnPrimary"
             android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView_wallet_item_profit_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="16sp"
+                android:layout_toStartOf="@id/textView_currency_price_profit"
+                android:layout_below="@id/textView_currency_price"
+                android:background="@android:color/transparent"
+                />
 
         <TextView
             android:layout_below="@id/textView_currency_price"
