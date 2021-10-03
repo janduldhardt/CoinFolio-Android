@@ -39,4 +39,7 @@ The app architecture used is based on best practices https://developer.android.c
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/42645713/135746908-bae398a4-de7d-42b7-80e7-2737479ceb3e.png" height="400">
+ 
+ <img src="https://user-images.githubusercontent.com/42645713/135748299-b1a6b297-ead9-4ecb-9c77-ba21485b3b2d.png" height="400">
+
 </p>
