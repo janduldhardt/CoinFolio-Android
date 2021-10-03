@@ -31,7 +31,7 @@ class WalletRepository(
     suspend fun createWallet(walletDTO: WalletDTO) = walletDao.createWallet(walletDTO)
 
     fun addValueEventListenerFirebase(walletId: String) {
-//        walletService.addValueEventListenerFirebase(walletId, transactionDao)
+        walletService.addValueEventListenerFirebase(walletId, transactionDao)
     }
 
 }

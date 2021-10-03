@@ -36,7 +36,6 @@ class Converters {
 
     @TypeConverter
     fun zonedDateTimeToString(input: ZonedDateTime): String {
-        return input.toString()
         val formattedDateTime = input.truncatedTo(ChronoUnit.SECONDS)
         val output =  DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(formattedDateTime)
         return output

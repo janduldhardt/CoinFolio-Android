@@ -16,6 +16,7 @@ class LoginViewModel(
         viewModelScope.launch{
             walletRepository.createWallet(newWallet)
         }
+
     }
 
 }

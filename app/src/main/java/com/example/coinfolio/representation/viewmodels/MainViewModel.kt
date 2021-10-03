@@ -27,6 +27,10 @@ class MainViewModel(
     val mWalletWithTransactions: LiveData<WalletWithTransactions> =
         walletRepository.getWalletWithTransactions(walletId)
 
+    init {
+        walletRepository.addValueEventListenerFirebase(walletId)
+    }
+
     fun saveTransaction(
         abbreviation: String,
         amount: String,
