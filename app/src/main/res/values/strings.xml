@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CoinFolio</string>
+    <string name="wallet_activity_title">Your Wallet</string>
+    <string name="track_activity_title">Top 100 Crypto Currencies by Marketcap</string>
+    <string name="cardview_totalcost">TOTAL COST  </string>
+    <string name="cardview_totalprofit">TOTAL PROFIT  </string>
+    <string name="EnterAmount">Enter Amount</string>
+    <string name="EnterPrice">Enter Price</string>
+    <string name="EnterADecimal">Enter a decimal</string>
+    <string name="CheckInvalidFields">Please check the input</string>
+    <string name="EnterWalletSeed">Enter your wallet seed</string>
+    <string name="GenerateSeed">Generate</string>
+    <string name="Login">Login</string>
+    <string name="LoignWalletSeedInputError">The entered seed can only contain digits and letters. The length must be between 15 and 255.</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="total_balance">Total Balance</string>
 </resources>

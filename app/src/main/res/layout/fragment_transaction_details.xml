@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColorLight"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primaryColor">
+
+        <ImageButton
+            android:id="@+id/btn_close_details"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_close_24"
+            app:tint="@color/textColorOnPrimary" />
+
+        <ImageButton
+            android:id="@+id/btn_save_details"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_check_24"
+            app:tint="@color/textColorOnPrimary" />
+    </Toolbar>
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/spinner_transaction_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="Select Cryptocurrency"
+        android:padding="16dp"
+        android:textColor="@color/textColorOnPrimary"
+        android:textSize="18sp"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_arrow_tint="@color/textColorOnPrimary"
+        app:spinner_divider_color="@color/textColorOnPrimary"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_background="@color/primaryColorDark"
+        app:spinner_popup_elevation="14dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
+            android:hint="@string/EnterAmount"
+            android:inputType="numberDecimal"
+            android:textColor="@color/textColorOnPrimary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/EnterPrice"
+            android:inputType="numberDecimal"
+            android:textSize="18sp"
+            android:textColor="@color/textColorOnPrimary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/spinner_transaction_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="Select transaction type"
+        android:padding="16dp"
+        android:textColor="@color/textColorOnPrimary"
+        android:textSize="18sp"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_arrow_tint="@color/textColorOnPrimary"
+        app:spinner_divider_color="@color/textColorOnPrimary"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_background="@color/primaryColorDark"
+        app:spinner_popup_elevation="14dp" />
+
+</LinearLayout>

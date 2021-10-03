@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorOnPrimary"
+        android:background="@color/primaryColor"
+        android:titleTextColor="@color/textColorOnPrimary"
+        android:title="@string/track_activity_title"
+
+        />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/titleText_activity_track"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/track_activity_title"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textColor="@color/colorOnPrimary"-->
+    <!--        android:textSize="24sp"-->
+    <!--        android:textStyle="bold" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView_activity_track"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

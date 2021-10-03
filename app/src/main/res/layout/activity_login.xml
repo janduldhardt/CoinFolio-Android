@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/primaryColorLight"
+    android:layout_height="match_parent"
+    tools:context=".representation.activities.LoginActivity">
+
+    <EditText
+        android:id="@+id/edit_wallet_login"
+        android:hint="@string/EnterWalletSeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorOnPrimary"
+        android:textColorHint="@color/textColorOnPrimary"
+        android:backgroundTint="@color/textColorOnPrimary"
+        android:layout_centerVertical="true"
+        android:layout_margin="16dp"/>
+
+    <Button
+        android:id="@+id/btn_generate_wallet_seed"
+        android:text="@string/GenerateSeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_wallet_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:text="@string/Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+</RelativeLayout>

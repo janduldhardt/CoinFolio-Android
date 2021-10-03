@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/textview_index_number"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:gravity="center"
+        android:text="1."
+        android:textColor="@color/textColorOnPrimary"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:id="@+id/imageView_currency_logo"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textView_currency_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_weight="3"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textColor="@color/textColorOnPrimary"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_currency_price"
+            android:maxLines="1"
+            android:text="TextView"
+            android:textAlignment="textEnd"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

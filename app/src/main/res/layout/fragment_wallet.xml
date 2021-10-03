@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColorLight"
+    tools:context=".representation.fragments.WalletFragment">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:titleTextColor="@color/textColorOnPrimary"
+        android:background="@color/primaryColor"
+        android:title="@string/portfolio">
+
+        <ImageButton
+            android:id="@+id/add_transaction"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_add_24"
+            app:tint="@color/textColorOnPrimary" />
+    </Toolbar>
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:text="@string/total_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
+
+    <TextView
+        android:id="@+id/textview_wallet_total_amount_fiat"
+        android:layout_marginTop="8dp"
+        android:textSize="26sp"
+        android:text="$4,070.65"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
+
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:text="Total profit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
+
+    <TextView
+        android:id="@+id/textview_wallet_total_amount_fiat_profit"
+        android:layout_marginTop="4dp"
+        android:textSize="20sp"
+        android:text="$4,070.65"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/textColorOnPrimary" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Balances"
+        android:textColor="@color/textColorOnPrimary"
+        android:layout_margin="8dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
