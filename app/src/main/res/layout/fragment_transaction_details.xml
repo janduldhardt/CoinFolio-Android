@@ -60,10 +60,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:textSize="18sp"
             android:hint="@string/EnterAmount"
             android:inputType="numberDecimal"
-            android:textColor="@color/textColorOnPrimary" />
+            android:padding="16"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,8 +79,9 @@
             android:background="@android:color/transparent"
             android:hint="@string/EnterPrice"
             android:inputType="numberDecimal"
-            android:textSize="18sp"
-            android:textColor="@color/textColorOnPrimary" />
+            android:padding="16dp"
+            android:textColor="@color/textColorOnPrimary"
+            android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
