@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable-anydpi/ic_coinfolio_imageaseet.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_coinfolio.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_coinfolio__logo.xml" value="0.19907407407407407" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_coinfoliohh.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_cryptocompare_logo.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/ic_mainjpg.xml" value="0.19814814814814816" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/main_activity_bg.xml" value="0.19722222222222222" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/drawable/splash_image.xml" value="0.1" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/layout/fragment_index.xml" value="0.2453125" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/layout/fragment_transaction_details.xml" value="0.5" />
+        <entry key="..\:/Users/Windows10/AndroidStudioProjects/CoinFolio-Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1935185185185185" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable-xhdpi/button.xml" value="0.24375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable/bg_gradient.xml" value="0.24375" />
         <entry key="..\:/Users/duldh/AndroidStudioProjects/CoinFolio/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.24375" />
